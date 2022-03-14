@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<!-- saved from url=(0016)http://localhost -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Object Serialization Stream Protocol</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #content-info{
+            width: auto;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #author-info{
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        #title{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            padding-top: 10px;
+            margin-bottom: 2px;
+            font-size: 34px;
+            color: #505050;
+        }
+        .text{
+            white-space:nowrap;
+            text-overflow: ellipsis;
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 2px;
+            font-size: 20px;
+            color: #8c8c8c;
+        }
+        #navBar{
+            width: auto;
+            height: auto;
+            position: fixed;
+            right:0;
+            bottom: 0;
+            background-color: #f0f3f4;
+            overflow-y: auto;
+            text-align: center;
+        }
+        #svg-container{
+            width: 100%;
+            overflow-x: scroll;
+            min-width: 0px;
+            margin: 0 10px;
+        }
+        #nav-thumbs{
+            overflow-y: scroll;
+            padding: 0 5px;
+        }
+        .nav-thumb{
+            position: relative;
+            margin: 10px auto;
+        }
+        .nav-thumb >p{
+            text-align: center;
+            font-size: 12px;
+            margin: 4px 0 0 0;
+        }
+        .nav-thumb >div{
+            position: relative;
+            display: inline-block;
+            border: 1px solid #c6cfd5;
+        }
+        .nav-thumb img{
+            display: block;
+        }
+        #main-content{
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #d0cfd8;
+            display: flex;
+            height: auto;
+            flex-flow: row wrap;
+            text-align:center;
+        }
+        #svg-container >svg{
+            display: block;
+            margin:10px auto;
+            margin-bottom: 0;
+        }
+        #copyright{
+            bottom: 0;
+            left: 50%;
+            margin: 5px auto;
+            font-size: 16px;
+            color: #515151;
+        }
+        #copyright >a{
+            text-decoration: none;
+            color: #77C;
+        }
+        .number{
+            position: absolute;
+            top:0;
+            left:0;
+            border-top:22px solid #08a1ef;
+            border-right: 22px solid transparent;
+        }
+        .pagenum{
+            font-size: 12px;
+            color: #fff;
+            position: absolute;
+            top: -23px;
+            left: 2px;
+        }
+            #navBar::-webkit-scrollbar{
+            width: 8px;
+            background-color: #f5f5f5;
+        }
+            #navBar::-webkit-scrollbar-track{
+            -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.3);
+            border-radius: 8px;
+            background-color: #fff;
+        }
+            #navBar::-webkit-scrollbar-thumb{
+            border-radius: 8px;
+            -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.3);
+            background-color: #6b6b70;
+        }
+        #navBar::-webkit-scrollbar-thumb:hover{
+            background-color: #4a4a4f;
+        }
+</style>
+  </head>
+  <body>
+    <div id="main-area">
+      <div id="content-info">
+        <div id="content-info">
+          <div id="title">Object Serialization Stream Protocol</div>
+        </div>
+        <div id="author-info">
+          <div id="author-name" class="text">@1nahnn</div>
+          <div id="share-time" class="text">2022-02-05</div>
+        </div>
+      </div>
+      <div id="main-content">
+        <div id="svg-container"><svg xmlns="http://www.w3.org/2000/svg" ed:hSpacing="30" id="page1" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink" height="3456" ed:vSpacing="30" preserveAspectRadio="xMinYMin meet" width="3351" viewBox="0 0 3351 3456" xmlns:ed="https://www.edrawsoft.cn/xml/2017/SVGExtensions/" ed:name="Page-1">
+    <style type="text/css"><![CDATA[
+g[ed\:togtopicid],g[ed\:hyperlink],g[ed\:comment],g[ed\:note] {cursor:pointer;}
+g[id] {-moz-user-select: none;-ms-user-select: none;user-select: none;}
+svg text::selection,svg tspan::selection{background-color: #4285f4;color: #ffffff;fill: #ffffff;}
+.st1 {fill:#000000;font-family:微软雅黑;font-size:10pt}
+.st6 {fill:#303030;font-family:微软雅黑;font-size:10pt;font-style:italic}
+.st5 {fill:#303030;font-family:微软雅黑;font-size:10pt}
+.st4 {fill:#303030;font-family:微软雅黑;font-size:12pt}
+.st2 {fill:#ffffff;font-family:微软雅黑;font-size:10pt}
+.st3 {fill:#ffffff;font-family:微软雅黑;font-size:14pt}
+]]></style>
+    <defs>
+        <linearGradient x2="0%" id="lg1" y2="100%" y1="0%" x1="0%">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="0.25" stop-color="#f0f5f0"/>
+            <stop offset="0.75" stop-color="#e1ebe1"/>
+            <stop offset="1" stop-color="#c8d7c8"/>
+        </linearGradient>
+    </defs>
+    <rect x="0" y="0" height="3456" fill="#f4f4f4" width="3351"/>
+    <path stroke-opacity="0.5" fill="#dcdcdc" stroke="#dcdcdc" d="M1603.2,1818.3C1603.3,1820.7,1603.1,1822.9,1602.6,1825C1602,1827,1601,1828.8,1599.7,1830.1C1598.2,1831.6,1596.3,1832.6,1594.1,1833.1C1591.8,1833.6,1589.4,1833.4,1586.7,1832.5C1584,1831.6,1581.6,1830.1,1579.5,1827.9C1576.9,1825.3,1574.9,1822,1573.6,1818C1572.3,1814,1572,1810.3,1572.7,1807C1573.4,1803.7,1574.7,1801.1,1576.5,1799.2C1578,1797.7,1579.7,1796.7,1581.8,1796.2C1583.9,1795.6,1586.1,1795.6,1588.6,1796.2L1585.6,1791.5L1590.1,1787.1L1603.2,1807.4C1605,1810.2,1606,1811.7,1606.3,1812C1606.7,1812.4,1607.3,1812.6,1607.9,1812.6C1608.6,1812.6,1609.2,1812.3,1609.7,1811.9C1610.5,1811,1611.2,1809.3,1611.6,1806.9C1612.2,1803.7,1611.9,1800.4,1610.8,1797.1C1609.6,1793.7,1607.9,1790.9,1605.5,1788.5C1602.7,1785.7,1599.4,1783.9,1595.6,1782.9C1591.8,1781.9,1587.8,1782.1,1583.5,1783.5C1579.3,1784.8,1575.4,1787.2,1572,1790.6C1568.2,1794.5,1565.5,1798.9,1564.1,1803.9C1562.8,1809,1562.9,1814.1,1564.5,1819.2C1566.1,1824.4,1568.9,1828.9,1572.7,1832.8C1576.8,1836.8,1581.2,1839.4,1585.9,1840.6C1590.6,1841.8,1595.3,1841.4,1600,1839.4C1604.8,1837.5,1609.2,1834.5,1613.2,1830.4C1617.6,1826.1,1620.5,1821.7,1622,1817.3C1623.4,1813,1623.9,1809,1623.2,1805.4L1627.7,1800.9C1628.6,1803.5,1629,1806.7,1628.7,1810.6C1628.5,1814.5,1627.4,1818.3,1625.7,1822.2C1623.9,1826.1,1621,1830.1,1617,1834.1C1613.3,1837.7,1609.5,1840.7,1605.4,1842.8C1601.3,1845,1597.3,1846.2,1593.2,1846.5C1589.1,1846.8,1585.3,1846.2,1581.7,1844.9C1577.2,1843.2,1573.1,1840.5,1569.5,1836.8C1565.4,1832.8,1562.4,1828.1,1560.4,1822.8C1557.9,1816.3,1557.4,1810,1558.7,1803.9C1560,1797.8,1563.3,1792,1568.6,1786.7C1572.8,1782.6,1577.3,1779.8,1582.2,1778.2C1587.2,1776.6,1592.3,1776.5,1597.5,1778C1602,1779.2,1605.9,1781.5,1609.3,1784.9C1614.1,1789.7,1616.6,1795.7,1617,1802.8C1617.3,1809.1,1615.7,1814.1,1612.1,1817.7C1611,1818.8,1609.9,1819.6,1608.8,1819.9C1607.8,1820.3,1606.8,1820.3,1605.8,1820C1605.2,1819.8,1604.3,1819.3,1603.2,1818.3M1584.4,1823.6C1586.7,1825.9,1589,1827.1,1591.3,1827.3C1593.7,1827.5,1595.5,1826.9,1596.9,1825.5C1597.8,1824.6,1598.5,1823.3,1599,1821.7C1599.5,1820.2,1599.6,1818.3,1599.5,1816.3C1599.3,1814.3,1598.7,1812.1,1597.6,1809.9C1596.5,1807.6,1595.1,1805.6,1593.5,1803.9C1591.2,1801.6,1588.9,1800.5,1586.5,1800.3C1584.2,1800.2,1582.2,1800.9,1580.6,1802.6C1579.5,1803.6,1578.8,1804.9,1578.4,1806.4C1578,1807.8,1577.9,1809.6,1578.3,1811.7C1578.6,1813.8,1579.3,1815.9,1580.5,1818.1C1581.7,1820.4,1583,1822.2,1584.4,1823.6M1649,1780.7L1644.5,1785.1L1616,1756.6C1615.9,1758.7,1615.5,1761.2,1614.8,1764C1614.1,1766.7,1613.3,1769.1,1612.4,1771L1608.1,1766.6C1609.4,1763,1610.2,1759.4,1610.4,1755.8C1610.6,1752.3,1610.3,1749.3,1609.5,1747L1612.4,1744.1L1649,1780.7M1661.6,1768L1635.2,1741.6L1639.2,1737.6L1643,1741.3C1642,1736.5,1643.4,1732.2,1647.1,1728.6C1648.6,1727,1650.4,1725.8,1652.3,1725C1654.2,1724.3,1656,1724,1657.5,1724.3C1659.1,1724.6,1660.7,1725.2,1662.2,1726.2C1663.2,1726.9,1664.8,1728.2,1666.8,1730.3L1683.1,1746.5L1678.6,1751L1662.5,1735C1660.7,1733.1,1659.2,1731.9,1657.9,1731.4C1656.7,1730.8,1655.3,1730.7,1653.9,1731.1C1652.5,1731.4,1651.2,1732.2,1650,1733.4C1648.1,1735.3,1647,1737.5,1646.9,1740.1C1646.7,1742.7,1648.3,1745.7,1651.7,1749.1L1666.1,1763.5L1661.6,1768M1689.9,1739.7L1653.5,1703.3L1657.9,1698.8L1671,1711.9C1670.7,1707.4,1672.1,1703.5,1675.3,1700.3C1677.2,1698.4,1679.3,1697.1,1681.5,1696.4C1683.8,1695.7,1685.9,1695.8,1687.8,1696.5C1689.8,1697.2,1692.1,1698.9,1694.7,1701.5L1711.4,1718.2L1706.9,1722.7L1690.2,1706C1688,1703.7,1685.9,1702.6,1683.9,1702.5C1681.9,1702.5,1680,1703.3,1678.2,1705.1C1676.9,1706.4,1676,1708,1675.5,1709.9C1675,1711.7,1675.1,1713.5,1675.8,1715.2C1676.5,1716.8,1677.9,1718.7,1679.9,1720.8L1694.4,1735.2L1689.9,1739.7M1732.2,1690.9C1731.9,1694,1731.3,1696.6,1730.4,1698.7C1729.4,1700.8,1728.1,1702.8,1726.3,1704.5C1723.4,1707.4,1720.5,1708.9,1717.5,1709.1C1714.5,1709.2,1711.9,1708.2,1709.7,1706C1708.4,1704.7,1707.5,1703.2,1707.1,1701.6C1706.6,1699.9,1706.5,1698.3,1706.8,1696.7C1707.1,1695.1,1707.7,1693.5,1708.5,1692C1709.2,1690.9,1710.3,1689.3,1711.9,1687.3C1715,1683.3,1717.2,1680.1,1718.3,1677.8C1717.7,1677.2,1717.3,1676.8,1717.1,1676.6C1715.3,1674.8,1713.6,1673.9,1712,1674C1709.9,1674.2,1707.7,1675.4,1705.4,1677.6C1703.3,1679.7,1702.1,1681.6,1701.9,1683.4C1701.6,1685.1,1702.2,1687.2,1703.5,1689.5L1698.6,1693.3C1697.1,1691,1696.2,1688.9,1696,1686.8C1695.8,1684.7,1696.2,1682.5,1697.3,1680.2C1698.4,1677.8,1700.1,1675.5,1702.4,1673.3C1704.6,1671,1706.7,1669.4,1708.6,1668.6C1710.6,1667.7,1712.3,1667.3,1713.8,1667.5C1715.2,1667.6,1716.7,1668.2,1718.2,1669.1C1719.1,1669.7,1720.6,1671,1722.5,1673L1728.5,1679C1732.7,1683.1,1735.4,1685.7,1736.7,1686.6C1738,1687.5,1739.4,1688.2,1741,1688.6L1736.3,1693.3C1734.9,1692.8,1733.5,1692.1,1732.2,1690.9M1721.8,1681.3C1720.8,1683.6,1719,1686.6,1716.2,1690.3C1714.6,1692.4,1713.6,1694,1713.2,1695.1C1712.7,1696.2,1712.6,1697.3,1712.9,1698.3C1713.1,1699.4,1713.6,1700.3,1714.4,1701.1C1715.6,1702.3,1717,1702.8,1718.7,1702.7C1720.4,1702.6,1722.1,1701.7,1723.9,1699.9C1725.6,1698.2,1726.7,1696.3,1727.3,1694.2C1727.9,1692.1,1727.9,1690.1,1727.2,1688.2C1726.7,1686.7,1725.4,1684.9,1723.4,1683L1721.8,1681.3M1746.5,1683.1L1720.1,1656.7L1724.1,1652.7L1727.9,1656.5C1726.9,1651.6,1728.2,1647.4,1731.9,1643.7C1733.5,1642.1,1735.2,1640.9,1737.2,1640.2C1739.1,1639.4,1740.8,1639.2,1742.4,1639.4C1744,1639.7,1745.6,1640.3,1747.1,1641.4C1748.1,1642,1749.6,1643.4,1751.7,1645.5L1767.9,1661.7L1763.5,1666.2L1747.4,1650.1C1745.6,1648.3,1744,1647.1,1742.8,1646.5C1741.5,1646,1740.2,1645.9,1738.8,1646.2C1737.3,1646.6,1736,1647.3,1734.8,1648.5C1732.9,1650.4,1731.9,1652.7,1731.7,1655.3C1731.5,1657.9,1733.2,1660.9,1736.5,1664.2L1751,1678.7L1746.5,1683.1M1774.8,1654.9L1748.4,1628.5L1752.4,1624.4L1756.1,1628.2C1755.2,1623.3,1756.5,1619.1,1760.2,1615.4C1761.8,1613.8,1763.5,1612.7,1765.4,1611.9C1767.3,1611.1,1769.1,1610.9,1770.7,1611.2C1772.3,1611.4,1773.8,1612.1,1775.4,1613.1C1776.4,1613.7,1777.9,1615.1,1780,1617.2L1796.2,1633.4L1791.7,1637.9L1775.7,1621.8C1773.9,1620,1772.3,1618.8,1771.1,1618.3C1769.8,1617.7,1768.5,1617.6,1767.1,1617.9C1765.6,1618.3,1764.3,1619.1,1763.1,1620.3C1761.2,1622.2,1760.2,1624.4,1760,1627C1759.8,1629.6,1761.4,1632.6,1764.8,1636L1779.2,1650.4L1774.8,1654.9" fill-opacity="0.5"/>
+    <g id="254" ed:toid="194" ed:type="relation" ed:fromid="251" transform="matrix(1,0,0,1,1677,1706)">
+        <path fill="none" d="M451.1,875.6C107.1,738.4,-569.3,-466.4,-451.1,-875.6"/>
+        <path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#788c8c" d="M451.1,875.6C108.7,739,-563.1,-455.4,-452.7,-870" stroke-dasharray="11,5"/>
+        <path stroke-linecap="round" fill="#788c8c" stroke="#788c8c" d="M-451.1,-875.6L-456.8,-870C-455.5,-870.4,-454.1,-870.4,-452.7,-870C-451.3,-869.6,-450.1,-868.9,-449.1,-867.9L-451.1,-875.6" stroke-width="1"/>
+        <rect x="-116.2" y="93" height="18" fill="#e9e8e8" width="4"/>
+        <text class="st1">
+            <tspan x="-176" y="106.3" style="white-space:pre"> </tspan>
+        </text>
+    </g>
+    <g id="281" ed:toid="247" ed:type="relation" ed:fromid="279" transform="matrix(1,0,0,1,1826,2704)">
+        <path fill="none" d="M-179.5,100.9C33,105.3,132.6,-77.1,179.5,-100.9"/>
+        <path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#788c8c" d="M-179.5,100.9C25.7,105.2,125.6,-64.8,174.5,-97.9" stroke-dasharray="11,5"/>
+        <path stroke-linecap="round" fill="#788c8c" stroke="#788c8c" d="M179.5,-100.9L171.5,-100.8C172.7,-100.1,173.8,-99.1,174.5,-97.9C175.2,-96.6,175.6,-95.2,175.6,-93.9L179.5,-100.9" stroke-width="1"/>
+        <rect x="40.7" y="1.6" height="18" fill="#e9e8e8" width="4"/>
+        <text class="st1">
+            <tspan x="59" y="14.9" style="white-space:pre"> </tspan>
+        </text>
+    </g>
+    <g id="316" ed:toid="304" ed:type="relation" ed:fromid="312" transform="matrix(1,0,0,1,2788,2356)">
+        <path fill="none" d="M17.9,32.6C-32.4,21.5,-81.7,-6.3,-17.9,-32.6"/>
+        <path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#788c8c" d="M17.9,32.6C-30.9,21.8,-78.8,-4.7,-23.3,-30.3" stroke-dasharray="11,5"/>
+        <path stroke-linecap="round" fill="#788c8c" stroke="#788c8c" d="M-17.9,-32.6L-25.9,-33.5C-24.8,-32.7,-23.9,-31.6,-23.3,-30.3C-22.7,-28.9,-22.5,-27.5,-22.7,-26.2L-17.9,-32.6" stroke-width="1"/>
+    </g>
+    <g id="360" ed:toid="176" ed:type="relation" ed:fromid="202" transform="matrix(1,0,0,1,1098,1435)">
+        <path fill="none" d="M205.2,-653C-226.1,-547,-201.2,206.1,-205.2,653"/>
+        <path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#788c8c" d="M205.2,-653C-224.2,-547.4,-201.4,199.5,-205.2,647.1" stroke-dasharray="11,5"/>
+        <path stroke-linecap="round" fill="#788c8c" stroke="#788c8c" d="M-205.2,653L-201.2,646.1C-202.4,646.8,-203.7,647.2,-205.2,647.1C-206.7,647.1,-208,646.7,-209.2,646L-205.2,653" stroke-width="1"/>
+    </g>
+    <g id="374" ed:toid="194" ed:type="relation" ed:fromid="351" transform="matrix(1,0,0,1,1288,887)">
+        <path fill="none" d="M57,56.6C10.7,44.6,-36.3,46.4,-57,-56.6"/>
+        <path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#788c8c" d="M57,56.6C11.6,44.8,-34.5,46.4,-55.8,-50.8" stroke-dasharray="11,5"/>
+        <path stroke-linecap="round" fill="#788c8c" stroke="#788c8c" d="M-57,-56.6L-59.5,-49C-58.5,-49.9,-57.2,-50.5,-55.8,-50.8C-54.4,-51.1,-52.9,-51,-51.6,-50.6L-57,-56.6" stroke-width="1"/>
+    </g>
+    <g id="399" ed:toid="375" ed:type="relation" ed:fromid="397" transform="matrix(1,0,0,1,1569,443)">
+        <path fill="none" d="M114,19.8C4.3,9.4,2.2,26.8,-114,-19.8"/>
+        <path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#788c8c" d="M114,19.8C6.1,9.5,2.3,26.2,-108.6,-17.7" stroke-dasharray="11,5"/>
+        <path stroke-linecap="round" fill="#788c8c" stroke="#788c8c" d="M-114,-19.8L-109.1,-13.5C-109.3,-14.9,-109.1,-16.3,-108.6,-17.7C-108.1,-19,-107.2,-20.1,-106.1,-21L-114,-19.8" stroke-width="1"/>
+    </g>
+    <g id="485" ed:toid="194" ed:type="relation" ed:fromid="477" transform="matrix(1,0,0,1,1299,1063)">
+        <path fill="none" d="M69.3,233.1C60.9,-18,-60.9,18,-69.3,-233.1"/>
+        <path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#788c8c" d="M69.3,233.1C61,-16.1,-59,17.5,-69.1,-227.3" stroke-dasharray="11,5"/>
+        <path stroke-linecap="round" fill="#788c8c" stroke="#788c8c" d="M-69.3,-233.1L-73,-226.1C-71.9,-226.8,-70.5,-227.2,-69.1,-227.3C-67.6,-227.3,-66.2,-227,-65,-226.4L-69.3,-233.1" stroke-width="1"/>
+    </g>
+    <g id="514" ed:toid="194" ed:type="relation" ed:fromid="365" transform="matrix(1,0,0,1,1267,517)">
+        <path fill="none" d="M32.8,-291.1C-223.7,-171.4,75.7,38.5,-32.8,291.1"/>
+        <path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#788c8c" d="M32.8,-291.1C-221.9,-172.3,71.5,35.5,-30.6,285.7" stroke-dasharray="11,5"/>
+        <path stroke-linecap="round" fill="#788c8c" stroke="#788c8c" d="M-32.8,291.1L-26.5,286.3C-27.8,286.5,-29.2,286.3,-30.6,285.7C-31.9,285.2,-33,284.3,-33.9,283.2L-32.8,291.1" stroke-width="1"/>
+    </g>
+    <g id="522" ed:toid="178" ed:type="relation" ed:fromid="206" transform="matrix(1,0,0,1,1131,1857)">
+        <path fill="none" d="M239.5,-978.4C-203,-265.7,203,265.7,-239.5,978.4"/>
+        <path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#788c8c" d="M239.5,-978.4C-202,-267.4,201.1,263.2,-236.4,973.4" stroke-dasharray="11,5"/>
+        <path stroke-linecap="round" fill="#788c8c" stroke="#788c8c" d="M-239.5,978.4L-232.5,974.6C-233.8,974.5,-235.2,974.2,-236.4,973.4C-237.7,972.6,-238.6,971.6,-239.3,970.4L-239.5,978.4" stroke-width="1"/>
+    </g>
+    <g id="523" ed:toid="160" ed:type="relation" ed:fromid="508" transform="matrix(1,0,0,1,1013,2355)">
+        <path fill="none" d="M229.4,704.9C-185.9,684.6,-289,272.9,-229.4,-704.9"/>
+        <path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#788c8c" d="M229.4,704.9C-185.1,684.6,-288.5,274.6,-229.8,-699" stroke-dasharray="11,5"/>
+        <path stroke-linecap="round" fill="#788c8c" stroke="#788c8c" d="M-229.4,-704.9L-233.8,-698.2C-232.6,-698.8,-231.2,-699.1,-229.8,-699C-228.3,-698.9,-227,-698.5,-225.8,-697.7L-229.4,-704.9" stroke-width="1"/>
+    </g>
+    <g id="524" ed:toid="160" ed:type="relation" ed:fromid="486" transform="matrix(1,0,0,1,1155,1504)">
+        <path fill="none" d="M350.5,-146.4C-5.3,-195.3,11.3,341.2,-350.5,146.4"/>
+        <path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#788c8c" d="M350.5,-146.4C-3.5,-195,11.1,336.1,-345.4,149.2" stroke-dasharray="11,5"/>
+        <path stroke-linecap="round" fill="#788c8c" stroke="#788c8c" d="M-350.5,146.4L-346.3,153.2C-346.3,151.9,-346,150.5,-345.4,149.2C-344.7,147.9,-343.7,146.9,-342.5,146.2L-350.5,146.4" stroke-width="1"/>
+    </g>
+    <g id="525" ed:toid="160" ed:type="relation" ed:fromid="437" transform="matrix(1,0,0,1,1235,1155)">
+        <path fill="none" d="M453.4,-472.9C-192.1,-508.3,-559.4,41.2,-453.4,472.9"/>
+        <path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#788c8c" d="M453.4,-472.9C-189.3,-508.2,-556.2,36.4,-454.8,467.2" stroke-dasharray="11,5"/>
+        <path stroke-linecap="round" fill="#788c8c" stroke="#788c8c" d="M-453.4,472.9L-451.2,465.2C-452.1,466.2,-453.4,466.9,-454.8,467.2C-456.2,467.6,-457.6,467.5,-458.9,467.1L-453.4,472.9" stroke-width="1"/>
+    </g>
+    <g id="526" ed:toid="400" ed:type="relation" ed:fromid="320" transform="matrix(1,0,0,1,1997,1484)">
+        <path fill="none" d="M175.9,999.8C327,166.1,329.4,-1304.7,-175.9,-999.8"/>
+        <path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#788c8c" d="M175.9,999.8C326.5,168.9,329.4,-1294.9,-170.8,-1002.7" stroke-dasharray="11,5"/>
+        <path stroke-linecap="round" fill="#788c8c" stroke="#788c8c" d="M-175.9,-999.8L-167.9,-999.8C-169.1,-1000.5,-170.1,-1001.5,-170.8,-1002.7C-171.6,-1004,-172,-1005.4,-172,-1006.7L-175.9,-999.8" stroke-width="1"/>
+    </g>
+    <g id="539" ed:toid="160" ed:type="relation" ed:fromid="317" transform="matrix(1,0,0,1,1861,2058)">
+        <path fill="none" d="M1066.5,408.2C78.5,406.4,-463.3,220.4,-1066.5,-408.2"/>
+        <path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#788c8c" d="M1066.5,408.2C80.7,406.4,-460.9,221.2,-1062.4,-404" stroke-dasharray="11,5"/>
+        <path stroke-linecap="round" fill="#788c8c" stroke="#788c8c" d="M-1066.5,-408.2L-1064.6,-400.4C-1064.2,-401.7,-1063.5,-403,-1062.4,-404C-1061.4,-405,-1060.1,-405.7,-1058.8,-406L-1066.5,-408.2" stroke-width="1"/>
+    </g>
+    <g id="540" ed:toid="180" ed:type="relation" ed:fromid="204" transform="matrix(1,0,0,1,1105,1844)">
+        <path fill="none" d="M210,-1034.3C-112.2,-923.8,-13.4,381.8,-210,1034.3"/>
+        <path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#788c8c" d="M210,-1034.3C-111.3,-924.1,-14,374.4,-208.3,1028.6" stroke-dasharray="11,5"/>
+        <path stroke-linecap="round" fill="#788c8c" stroke="#788c8c" d="M-210,1034.3L-204.2,1028.8C-205.5,1029.1,-206.9,1029.1,-208.3,1028.6C-209.7,1028.2,-210.9,1027.5,-211.8,1026.5L-210,1034.3" stroke-width="1"/>
+    </g>
+    <g id="541" ed:toid="395" ed:type="relation" ed:fromid="381" transform="matrix(1,0,0,1,1524,625)">
+        <path fill="none" d="M-74.8,77.9C-87.8,-37,-39.2,-56.1,74.8,-77.9"/>
+        <path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#788c8c" d="M-74.8,77.9C-87.5,-35.1,-40.8,-55.4,69.1,-76.8" stroke-dasharray="11,5"/>
+        <path stroke-linecap="round" fill="#788c8c" stroke="#788c8c" d="M74.8,-77.9L67.3,-80.5C68.2,-79.5,68.8,-78.2,69.1,-76.8C69.4,-75.3,69.2,-73.9,68.8,-72.6L74.8,-77.9" stroke-width="1"/>
+    </g>
+    <g id="656" ed:toid="245" ed:type="relation" ed:fromid="277" transform="matrix(1,0,0,1,2047,2661)">
+        <path fill="none" d="M14.1,121C155.2,137.5,20,-5.3,-14.1,-121"/>
+        <path stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#788c8c" d="M14.1,121C152.9,137.3,24.2,-0.8,-12.4,-115.4" stroke-dasharray="11,5"/>
+        <path stroke-linecap="round" fill="#788c8c" stroke="#788c8c" d="M-14.1,-121L-15.9,-113.2C-15,-114.2,-13.8,-115,-12.4,-115.4C-11,-115.8,-9.6,-115.8,-8.3,-115.5L-14.1,-121" stroke-width="1"/>
+    </g>
+    <path id="103" ed:tosuperid="102" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M0,-828.3L0,828.3" ed:parentid="101" transform="matrix(1,0,0,1,136,905)"/>
+    <path id="105" ed:tosuperid="104" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,40.3L3.7,40.3L3.7,-34.3C3.7,-37.6,6.4,-40.3,9.7,-40.3L13.5,-40.3" ed:parentid="102" transform="matrix(1,0,0,1,265,1722)"/>
+    <path id="107" ed:tosuperid="106" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,790.4L3.7,790.4L3.7,-784.4C3.7,-787.7,6.4,-790.4,9.7,-790.4L13.5,-790.4" ed:parentid="156" transform="matrix(1,0,0,1,547,891)"/>
+    <path id="109" ed:tosuperid="108" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,776.1L3.7,-770.1C3.7,-773.4,6.4,-776.1,9.7,-776.1L13.5,-776.1" ed:parentid="156" transform="matrix(1,0,0,1,547,906)"/>
+    <path id="111" ed:tosuperid="110" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-14.3L3.7,8.3C3.7,11.6,6.4,14.3,9.7,14.3L13.5,14.3" ed:parentid="156" transform="matrix(1,0,0,1,547,1696)"/>
+    <path id="115" ed:tosuperid="114" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="106" transform="matrix(1,0,0,1,632,101)"/>
+    <path id="117" ed:tosuperid="116" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="114" transform="matrix(1,0,0,1,783,101)"/>
+    <path id="119" ed:tosuperid="118" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="108" transform="matrix(1,0,0,1,639,130)"/>
+    <path id="121" ed:tosuperid="120" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="118" transform="matrix(1,0,0,1,804,130)"/>
+    <path id="123" ed:tosuperid="122" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-7.1L3.7,1.1C3.7,4.4,6.4,7.1,9.7,7.1L13.5,7.1" ed:parentid="110" transform="matrix(1,0,0,1,647,1717)"/>
+    <path id="157" ed:tosuperid="156" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="104" transform="matrix(1,0,0,1,354,1682)"/>
+    <path id="159" ed:tosuperid="158" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,776.1L3.7,776.1L3.7,-770.1C3.7,-773.4,6.4,-776.1,9.7,-776.1L13.5,-776.1" ed:parentid="110" transform="matrix(1,0,0,1,647,934)"/>
+    <path id="161" ed:tosuperid="160" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,42.8L3.7,42.8L3.7,-36.8C3.7,-40.1,6.4,-42.8,9.7,-42.8L13.5,-42.8" ed:parentid="122" transform="matrix(1,0,0,1,741,1682)"/>
+    <path id="163" ed:tosuperid="162" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-733.4L3.7,727.4C3.7,730.7,6.4,733.4,9.7,733.4L13.5,733.4" ed:parentid="122" transform="matrix(1,0,0,1,741,2458)"/>
+    <path id="167" ed:tosuperid="166" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,594.5L3.7,594.5L3.7,-588.5C3.7,-591.8,6.4,-594.5,9.7,-594.5L13.5,-594.5" ed:parentid="160" transform="matrix(1,0,0,1,826,1045)"/>
+    <path id="169" ed:tosuperid="168" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,409.9L3.7,-403.9C3.7,-407.2,6.4,-409.9,9.7,-409.9L13.5,-409.9" ed:parentid="160" transform="matrix(1,0,0,1,826,1229)"/>
+    <path id="171" ed:tosuperid="170" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,318.4L3.7,-312.4C3.7,-315.7,6.4,-318.4,9.7,-318.4L13.5,-318.4" ed:parentid="160" transform="matrix(1,0,0,1,826,1321)"/>
+    <path id="173" ed:tosuperid="172" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,229.9L3.7,-223.9C3.7,-227.2,6.4,-229.9,9.7,-229.9L13.5,-229.9" ed:parentid="160" transform="matrix(1,0,0,1,826,1409)"/>
+    <path id="175" ed:tosuperid="174" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,158.6L3.7,-152.6C3.7,-155.9,6.4,-158.6,9.7,-158.6L13.5,-158.6" ed:parentid="160" transform="matrix(1,0,0,1,826,1480)"/>
+    <path id="177" ed:tosuperid="176" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-229.8L3.7,223.8C3.7,227.1,6.4,229.8,9.7,229.8L13.5,229.8" ed:parentid="160" transform="matrix(1,0,0,1,826,1869)"/>
+    <path id="179" ed:tosuperid="178" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-603.9L3.7,597.9C3.7,601.2,6.4,603.9,9.7,603.9L13.5,603.9" ed:parentid="160" transform="matrix(1,0,0,1,826,2243)"/>
+    <path id="181" ed:tosuperid="180" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-625.3L3.7,619.3C3.7,622.6,6.4,625.3,9.7,625.3L13.5,625.3" ed:parentid="160" transform="matrix(1,0,0,1,826,2264)"/>
+    <path id="183" ed:tosuperid="182" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-675.8L3.7,669.8C3.7,673.1,6.4,675.8,9.7,675.8L13.5,675.8" ed:parentid="160" transform="matrix(1,0,0,1,826,2315)"/>
+    <path id="185" ed:tosuperid="184" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-726.3L3.7,720.3C3.7,723.6,6.4,726.3,9.7,726.3L13.5,726.3" ed:parentid="160" transform="matrix(1,0,0,1,826,2365)"/>
+    <path id="187" ed:tosuperid="186" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="184" transform="matrix(1,0,0,1,933,3092)"/>
+    <path id="189" ed:tosuperid="188" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="168" transform="matrix(1,0,0,1,930,819)"/>
+    <path id="191" ed:tosuperid="190" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,38.6L3.7,38.6L3.7,-32.6C3.7,-35.9,6.4,-38.6,9.7,-38.6L13.5,-38.6" ed:parentid="188" transform="matrix(1,0,0,1,1176,781)"/>
+    <path id="193" ed:tosuperid="192" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="190" transform="matrix(1,0,0,1,1285,742)"/>
+    <path id="195" ed:tosuperid="194" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="188" transform="matrix(1,0,0,1,1176,819)"/>
+    <path id="197" ed:tosuperid="196" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-38.6L3.7,32.6C3.7,35.9,6.4,38.6,9.7,38.6L13.5,38.6" ed:parentid="188" transform="matrix(1,0,0,1,1176,858)"/>
+    <path id="203" ed:tosuperid="202" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,24.4L3.7,24.4L3.7,-18.4C3.7,-21.7,6.4,-24.4,9.7,-24.4L13.5,-24.4" ed:parentid="194" transform="matrix(1,0,0,1,1282,795)"/>
+    <path id="205" ed:tosuperid="204" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,10.1L3.7,-4.1C3.7,-7.4,6.4,-10.1,9.7,-10.1L13.5,-10.1" ed:parentid="194" transform="matrix(1,0,0,1,1282,809)"/>
+    <path id="207" ed:tosuperid="206" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-24.4L3.7,18.4C3.7,21.7,6.4,24.4,9.7,24.4L13.5,24.4" ed:parentid="194" transform="matrix(1,0,0,1,1282,844)"/>
+    <path id="214" ed:tosuperid="213" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-797.5L3.7,791.5C3.7,794.8,6.4,797.5,9.7,797.5L13.5,797.5" ed:parentid="102" transform="matrix(1,0,0,1,265,2560)"/>
+    <path id="218" ed:tosuperid="217" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,52.9L3.7,52.9L3.7,-46.9C3.7,-50.2,6.4,-52.9,9.7,-52.9L13.5,-52.9" ed:parentid="176" transform="matrix(1,0,0,1,960,2046)"/>
+    <path id="220" ed:tosuperid="219" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-307L3.7,301C3.7,304.3,6.4,307,9.7,307L13.5,307" ed:parentid="176" transform="matrix(1,0,0,1,960,2406)"/>
+    <path id="222" ed:tosuperid="221" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,299.9L3.7,299.9L3.7,-293.9C3.7,-297.2,6.4,-299.9,9.7,-299.9L13.5,-299.9" ed:parentid="217" transform="matrix(1,0,0,1,1446,1693)"/>
+    <path id="224" ed:tosuperid="223" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,285.6L3.7,-279.6C3.7,-282.9,6.4,-285.6,9.7,-285.6L13.5,-285.6" ed:parentid="217" transform="matrix(1,0,0,1,1446,1707)"/>
+    <path id="226" ed:tosuperid="225" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,271.4L3.7,-265.4C3.7,-268.7,6.4,-271.4,9.7,-271.4L13.5,-271.4" ed:parentid="217" transform="matrix(1,0,0,1,1446,1721)"/>
+    <path id="228" ed:tosuperid="227" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,257.1L3.7,-251.1C3.7,-254.4,6.4,-257.1,9.7,-257.1L13.5,-257.1" ed:parentid="217" transform="matrix(1,0,0,1,1446,1736)"/>
+    <path id="230" ed:tosuperid="229" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-28.5L3.7,22.5C3.7,25.8,6.4,28.5,9.7,28.5L13.5,28.5" ed:parentid="217" transform="matrix(1,0,0,1,1446,2021)"/>
+    <path id="232" ed:tosuperid="231" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,45.8L3.7,45.8L3.7,-39.8C3.7,-43.1,6.4,-45.8,9.7,-45.8L13.5,-45.8" ed:parentid="219" transform="matrix(1,0,0,1,1348,2667)"/>
+    <path id="234" ed:tosuperid="233" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,31.5L3.7,-25.5C3.7,-28.8,6.4,-31.5,9.7,-31.5L13.5,-31.5" ed:parentid="219" transform="matrix(1,0,0,1,1348,2681)"/>
+    <path id="236" ed:tosuperid="235" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-14.3L3.7,8.3C3.7,11.6,6.4,14.3,9.7,14.3L13.5,14.3" ed:parentid="219" transform="matrix(1,0,0,1,1348,2727)"/>
+    <path id="238" ed:tosuperid="237" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="221" transform="matrix(1,0,0,1,1588,1393)"/>
+    <path id="240" ed:tosuperid="239" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="229" transform="matrix(1,0,0,1,1576,2050)"/>
+    <path id="242" ed:tosuperid="241" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,141.4L3.7,141.4L3.7,-135.4C3.7,-138.7,6.4,-141.4,9.7,-141.4L13.5,-141.4" ed:parentid="239" transform="matrix(1,0,0,1,1956,1908)"/>
+    <path id="244" ed:tosuperid="243" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-105.6L3.7,99.6C3.7,102.9,6.4,105.6,9.7,105.6L13.5,105.6" ed:parentid="239" transform="matrix(1,0,0,1,1956,2155)"/>
+    <path id="246" ed:tosuperid="245" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-239.9L3.7,233.9C3.7,237.2,6.4,239.9,9.7,239.9L13.5,239.9" ed:parentid="239" transform="matrix(1,0,0,1,1956,2290)"/>
+    <path id="248" ed:tosuperid="247" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-271.4L3.7,265.4C3.7,268.7,6.4,271.4,9.7,271.4L13.5,271.4" ed:parentid="239" transform="matrix(1,0,0,1,1956,2321)"/>
+    <path id="252" ed:tosuperid="251" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="247" transform="matrix(1,0,0,1,2099,2593)"/>
+    <path id="256" ed:tosuperid="255" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="223" transform="matrix(1,0,0,1,1559,1422)"/>
+    <path id="258" ed:tosuperid="257" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="225" transform="matrix(1,0,0,1,1596,1450)"/>
+    <path id="260" ed:tosuperid="259" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="241" transform="matrix(1,0,0,1,2094,1767)"/>
+    <path id="262" ed:tosuperid="261" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,107L3.7,107L3.7,-101C3.7,-104.3,6.4,-107,9.7,-107L13.5,-107" ed:parentid="259" transform="matrix(1,0,0,1,2178,1660)"/>
+    <path id="264" ed:tosuperid="263" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,55.8L3.7,-49.8C3.7,-53.1,6.4,-55.8,9.7,-55.8L13.5,-55.8" ed:parentid="259" transform="matrix(1,0,0,1,2178,1711)"/>
+    <path id="266" ed:tosuperid="265" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,9L3.7,-3C3.7,-6.3,6.4,-9,9.7,-9L13.5,-9" ed:parentid="259" transform="matrix(1,0,0,1,2178,1758)"/>
+    <path id="268" ed:tosuperid="267" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-42.3L3.7,36.3C3.7,39.6,6.4,42.3,9.7,42.3L13.5,42.3" ed:parentid="259" transform="matrix(1,0,0,1,2178,1809)"/>
+    <path id="270" ed:tosuperid="269" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-102.5L3.7,96.5C3.7,99.8,6.4,102.5,9.7,102.5L13.5,102.5" ed:parentid="259" transform="matrix(1,0,0,1,2178,1870)"/>
+    <path id="272" ed:tosuperid="271" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,7.1L3.7,7.1L3.7,-1.1C3.7,-4.4,6.4,-7.1,9.7,-7.1L13.5,-7.1" ed:parentid="235" transform="matrix(1,0,0,1,1518,2734)"/>
+    <path id="274" ed:tosuperid="273" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,24.4L3.7,24.4L3.7,-18.4C3.7,-21.7,6.4,-24.4,9.7,-24.4L13.5,-24.4" ed:parentid="271" transform="matrix(1,0,0,1,1928,2702)"/>
+    <path id="276" ed:tosuperid="275" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-10.1L3.7,4.1C3.7,7.4,6.4,10.1,9.7,10.1L13.5,10.1" ed:parentid="271" transform="matrix(1,0,0,1,1928,2737)"/>
+    <path id="278" ed:tosuperid="277" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-24.4L3.7,18.4C3.7,21.7,6.4,24.4,9.7,24.4L13.5,24.4" ed:parentid="271" transform="matrix(1,0,0,1,1928,2751)"/>
+    <path id="280" ed:tosuperid="279" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-31.5L3.7,25.5C3.7,28.8,6.4,31.5,9.7,31.5L13.5,31.5" ed:parentid="235" transform="matrix(1,0,0,1,1518,2773)"/>
+    <path id="283" ed:tosuperid="282" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="275" transform="matrix(1,0,0,1,2104,2747)"/>
+    <path id="286" ed:tosuperid="285" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="243" transform="matrix(1,0,0,1,2036,2261)"/>
+    <path id="288" ed:tosuperid="287" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,102.8L3.7,102.8L3.7,-96.8C3.7,-100.1,6.4,-102.8,9.7,-102.8L13.5,-102.8" ed:parentid="285" transform="matrix(1,0,0,1,2292,2158)"/>
+    <path id="290" ed:tosuperid="289" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-7.1L3.7,1.1C3.7,4.4,6.4,7.1,9.7,7.1L13.5,7.1" ed:parentid="285" transform="matrix(1,0,0,1,2292,2268)"/>
+    <path id="295" ed:tosuperid="294" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,38.6L3.7,38.6L3.7,-32.6C3.7,-35.9,6.4,-38.6,9.7,-38.6L13.5,-38.6" ed:parentid="289" transform="matrix(1,0,0,1,2396,2237)"/>
+    <path id="297" ed:tosuperid="296" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-64.1L3.7,58.1C3.7,61.4,6.4,64.1,9.7,64.1L13.5,64.1" ed:parentid="289" transform="matrix(1,0,0,1,2396,2339)"/>
+    <path id="299" ed:tosuperid="298" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="231" transform="matrix(1,0,0,1,1535,2621)"/>
+    <path id="301" ed:tosuperid="300" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="294" transform="matrix(1,0,0,1,2529,2198)"/>
+    <path id="303" ed:tosuperid="302" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="296" transform="matrix(1,0,0,1,2511,2404)"/>
+    <path id="305" ed:tosuperid="304" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-57L3.7,51C3.7,54.3,6.4,57,9.7,57L13.5,57" ed:parentid="300" transform="matrix(1,0,0,1,2741,2255)"/>
+    <path id="307" ed:tosuperid="306" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="304" transform="matrix(1,0,0,1,2852,2312)"/>
+    <path id="309" ed:tosuperid="308" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-21.4L3.7,15.4C3.7,18.7,6.4,21.4,9.7,21.4L13.5,21.4" ed:parentid="302" transform="matrix(1,0,0,1,2792,2425)"/>
+    <path id="311" ed:tosuperid="310" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,7.1L3.7,7.1L3.7,-1.1C3.7,-4.4,6.4,-7.1,9.7,-7.1L13.5,-7.1" ed:parentid="300" transform="matrix(1,0,0,1,2741,2191)"/>
+    <path id="313" ed:tosuperid="312" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,3C3.7,-0.3,6.4,-3,9.7,-3L13.5,-3" ed:parentid="302" transform="matrix(1,0,0,1,2792,2401)"/>
+    <path id="315" ed:tosuperid="314" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,24.4L3.7,24.4L3.7,-18.4C3.7,-21.7,6.4,-24.4,9.7,-24.4L13.5,-24.4" ed:parentid="302" transform="matrix(1,0,0,1,2792,2379)"/>
+    <path id="318" ed:tosuperid="317" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,-10.1L3.7,-10.1L3.7,4.1C3.7,7.4,6.4,10.1,9.7,10.1L13.5,10.1" ed:parentid="308" transform="matrix(1,0,0,1,2914,2456)"/>
+    <path id="321" ed:tosuperid="320" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,17.3L3.7,17.3L3.7,-11.3C3.7,-14.6,6.4,-17.3,9.7,-17.3L13.5,-17.3" ed:parentid="245" transform="matrix(1,0,0,1,2102,2512)"/>
+    <path id="323" ed:tosuperid="322" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-17.3L3.7,11.3C3.7,14.6,6.4,17.3,9.7,17.3L13.5,17.3" ed:parentid="245" transform="matrix(1,0,0,1,2102,2547)"/>
+    <path id="326" ed:tosuperid="325" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,49.9L3.7,49.9L3.7,-43.9C3.7,-47.2,6.4,-49.9,9.7,-49.9L13.5,-49.9" ed:parentid="310" transform="matrix(1,0,0,1,2886,2134)"/>
+    <path id="328" ed:tosuperid="327" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,35.6L3.7,-29.6C3.7,-32.9,6.4,-35.6,9.7,-35.6L13.5,-35.6" ed:parentid="310" transform="matrix(1,0,0,1,2886,2148)"/>
+    <path id="330" ed:tosuperid="329" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,21.4L3.7,-15.4C3.7,-18.7,6.4,-21.4,9.7,-21.4L13.5,-21.4" ed:parentid="310" transform="matrix(1,0,0,1,2886,2162)"/>
+    <path id="332" ed:tosuperid="331" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,7.1L3.7,-1.1C3.7,-4.4,6.4,-7.1,9.7,-7.1L13.5,-7.1" ed:parentid="310" transform="matrix(1,0,0,1,2886,2177)"/>
+    <path id="334" ed:tosuperid="333" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-7.1L3.7,1.1C3.7,4.4,6.4,7.1,9.7,7.1L13.5,7.1" ed:parentid="310" transform="matrix(1,0,0,1,2886,2191)"/>
+    <path id="336" ed:tosuperid="335" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-21.4L3.7,15.4C3.7,18.7,6.4,21.4,9.7,21.4L13.5,21.4" ed:parentid="310" transform="matrix(1,0,0,1,2886,2205)"/>
+    <path id="338" ed:tosuperid="337" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-35.6L3.7,29.6C3.7,32.9,6.4,35.6,9.7,35.6L13.5,35.6" ed:parentid="310" transform="matrix(1,0,0,1,2886,2219)"/>
+    <path id="340" ed:tosuperid="339" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-49.9L3.7,43.9C3.7,47.2,6.4,49.9,9.7,49.9L13.5,49.9" ed:parentid="310" transform="matrix(1,0,0,1,2886,2234)"/>
+    <path id="344" ed:tosuperid="343" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,7.1L3.7,7.1L3.7,-1.1C3.7,-4.4,6.4,-7.1,9.7,-7.1L13.5,-7.1" ed:parentid="314" transform="matrix(1,0,0,1,2924,2348)"/>
+    <path id="346" ed:tosuperid="345" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-7.1L3.7,1.1C3.7,4.4,6.4,7.1,9.7,7.1L13.5,7.1" ed:parentid="314" transform="matrix(1,0,0,1,2924,2362)"/>
+    <path id="348" ed:tosuperid="347" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="170" transform="matrix(1,0,0,1,933,1002)"/>
+    <path id="350" ed:tosuperid="349" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,38.6L3.7,38.6L3.7,-32.6C3.7,-35.9,6.4,-38.6,9.7,-38.6L13.5,-38.6" ed:parentid="347" transform="matrix(1,0,0,1,1332,964)"/>
+    <path id="352" ed:tosuperid="351" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,24.4L3.7,-18.4C3.7,-21.7,6.4,-24.4,9.7,-24.4L13.5,-24.4" ed:parentid="347" transform="matrix(1,0,0,1,1332,978)"/>
+    <path id="354" ed:tosuperid="353" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,10.1L3.7,-4.1C3.7,-7.4,6.4,-10.1,9.7,-10.1L13.5,-10.1" ed:parentid="347" transform="matrix(1,0,0,1,1332,992)"/>
+    <path id="356" ed:tosuperid="355" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-4.1L3.7,-1.9C3.7,1.4,6.4,4.1,9.7,4.1L13.5,4.1" ed:parentid="347" transform="matrix(1,0,0,1,1332,1006)"/>
+    <path id="358" ed:tosuperid="357" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-38.6L3.7,32.6C3.7,35.9,6.4,38.6,9.7,38.6L13.5,38.6" ed:parentid="347" transform="matrix(1,0,0,1,1332,1041)"/>
+    <path id="362" ed:tosuperid="361" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="166" transform="matrix(1,0,0,1,940,450)"/>
+    <path id="364" ed:tosuperid="363" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,131.8L3.7,131.8L3.7,-125.8C3.7,-129.1,6.4,-131.8,9.7,-131.8L13.5,-131.8" ed:parentid="361" transform="matrix(1,0,0,1,1268,318)"/>
+    <path id="366" ed:tosuperid="365" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,117.5L3.7,-111.5C3.7,-114.8,6.4,-117.5,9.7,-117.5L13.5,-117.5" ed:parentid="361" transform="matrix(1,0,0,1,1268,333)"/>
+    <path id="368" ed:tosuperid="367" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,68.3L3.7,-62.3C3.7,-65.6,6.4,-68.3,9.7,-68.3L13.5,-68.3" ed:parentid="361" transform="matrix(1,0,0,1,1268,382)"/>
+    <path id="370" ed:tosuperid="369" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-50L3.7,44C3.7,47.3,6.4,50,9.7,50L13.5,50" ed:parentid="361" transform="matrix(1,0,0,1,1268,500)"/>
+    <path id="372" ed:tosuperid="371" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="363" transform="matrix(1,0,0,1,1388,187)"/>
+    <path id="376" ed:tosuperid="375" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,68.8L3.7,68.8L3.7,-62.8C3.7,-66.1,6.4,-68.8,9.7,-68.8L13.5,-68.8" ed:parentid="369" transform="matrix(1,0,0,1,1372,481)"/>
+    <path id="378" ed:tosuperid="377" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,14.3L3.7,-8.3C3.7,-11.6,6.4,-14.3,9.7,-14.3L13.5,-14.3" ed:parentid="369" transform="matrix(1,0,0,1,1372,536)"/>
+    <path id="380" ed:tosuperid="379" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-47.4L3.7,41.4C3.7,44.7,6.4,47.4,9.7,47.4L13.5,47.4" ed:parentid="369" transform="matrix(1,0,0,1,1372,597)"/>
+    <path id="382" ed:tosuperid="381" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-81.8L3.7,75.8C3.7,79.1,6.4,81.8,9.7,81.8L13.5,81.8" ed:parentid="369" transform="matrix(1,0,0,1,1372,632)"/>
+    <path id="391" ed:tosuperid="390" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,-13L3.7,-13L3.7,7C3.7,10.3,6.4,13,9.7,13L13.5,13" ed:parentid="375" transform="matrix(1,0,0,1,1484,426)"/>
+    <path id="394" ed:tosuperid="393" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,27.3L3.7,27.3L3.7,-21.3C3.7,-24.6,6.4,-27.3,9.7,-27.3L13.5,-27.3" ed:parentid="377" transform="matrix(1,0,0,1,1578,494)"/>
+    <path id="396" ed:tosuperid="395" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-7.1L3.7,1.1C3.7,4.4,6.4,7.1,9.7,7.1L13.5,7.1" ed:parentid="377" transform="matrix(1,0,0,1,1578,529)"/>
+    <path id="398" ed:tosuperid="397" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="393" transform="matrix(1,0,0,1,1670,467)"/>
+    <path id="401" ed:tosuperid="400" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,20.1L3.7,20.1L3.7,-14.1C3.7,-17.4,6.4,-20.1,9.7,-20.1L13.5,-20.1" ed:parentid="395" transform="matrix(1,0,0,1,1734,516)"/>
+    <path id="403" ed:tosuperid="402" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-20.1L3.7,14.1C3.7,17.4,6.4,20.1,9.7,20.1L13.5,20.1" ed:parentid="395" transform="matrix(1,0,0,1,1734,556)"/>
+    <path id="406" ed:tosuperid="405" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,21.4L3.7,21.4L3.7,-15.4C3.7,-18.7,6.4,-21.4,9.7,-21.4L13.5,-21.4" ed:parentid="162" transform="matrix(1,0,0,1,850,3170)"/>
+    <path id="408" ed:tosuperid="407" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-21.4L3.7,15.4C3.7,18.7,6.4,21.4,9.7,21.4L13.5,21.4" ed:parentid="162" transform="matrix(1,0,0,1,850,3213)"/>
+    <path id="410" ed:tosuperid="409" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="405" transform="matrix(1,0,0,1,993,3149)"/>
+    <path id="412" ed:tosuperid="411" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,14.3L3.7,14.3L3.7,-8.3C3.7,-11.6,6.4,-14.3,9.7,-14.3L13.5,-14.3" ed:parentid="409" transform="matrix(1,0,0,1,1363,3134)"/>
+    <path id="414" ed:tosuperid="413" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="409" transform="matrix(1,0,0,1,1363,3149)"/>
+    <path id="416" ed:tosuperid="415" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-14.3L3.7,8.3C3.7,11.6,6.4,14.3,9.7,14.3L13.5,14.3" ed:parentid="409" transform="matrix(1,0,0,1,1363,3163)"/>
+    <path id="418" ed:tosuperid="417" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="411" transform="matrix(1,0,0,1,1510,3120)"/>
+    <path id="424" ed:tosuperid="423" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="407" transform="matrix(1,0,0,1,987,3234)"/>
+    <path id="426" ed:tosuperid="425" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,14.3L3.7,14.3L3.7,-8.3C3.7,-11.6,6.4,-14.3,9.7,-14.3L13.5,-14.3" ed:parentid="423" transform="matrix(1,0,0,1,1319,3220)"/>
+    <path id="428" ed:tosuperid="427" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="423" transform="matrix(1,0,0,1,1319,3234)"/>
+    <path id="430" ed:tosuperid="429" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-14.3L3.7,8.3C3.7,11.6,6.4,14.3,9.7,14.3L13.5,14.3" ed:parentid="423" transform="matrix(1,0,0,1,1319,3248)"/>
+    <path id="432" ed:tosuperid="431" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="425" transform="matrix(1,0,0,1,1504,3206)"/>
+    <path id="434" ed:tosuperid="433" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="400" transform="matrix(1,0,0,1,1870,496)"/>
+    <path id="436" ed:tosuperid="435" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="433" transform="matrix(1,0,0,1,2046,496)"/>
+    <path id="438" ed:tosuperid="437" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,-13L3.7,-13L3.7,7C3.7,10.3,6.4,13,9.7,13L13.5,13" ed:parentid="440" transform="matrix(1,0,0,1,1674,672)"/>
+    <path id="441" ed:tosuperid="440" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-7.1L3.7,1.1C3.7,4.4,6.4,7.1,9.7,7.1L13.5,7.1" ed:parentid="379" transform="matrix(1,0,0,1,1524,652)"/>
+    <path id="443" ed:tosuperid="442" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,20.1L3.7,20.1L3.7,-14.1C3.7,-17.4,6.4,-20.1,9.7,-20.1L13.5,-20.1" ed:parentid="379" transform="matrix(1,0,0,1,1524,625)"/>
+    <path id="452" ed:tosuperid="451" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,21.4L3.7,21.4L3.7,-15.4C3.7,-18.7,6.4,-21.4,9.7,-21.4L13.5,-21.4" ed:parentid="172" transform="matrix(1,0,0,1,936,1158)"/>
+    <path id="454" ed:tosuperid="453" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-21.4L3.7,15.4C3.7,18.7,6.4,21.4,9.7,21.4L13.5,21.4" ed:parentid="172" transform="matrix(1,0,0,1,936,1201)"/>
+    <path id="456" ed:tosuperid="455" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,14.3L3.7,14.3L3.7,-8.3C3.7,-11.6,6.4,-14.3,9.7,-14.3L13.5,-14.3" ed:parentid="451" transform="matrix(1,0,0,1,1158,1122)"/>
+    <path id="458" ed:tosuperid="457" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="451" transform="matrix(1,0,0,1,1158,1137)"/>
+    <path id="460" ed:tosuperid="459" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-14.3L3.7,8.3C3.7,11.6,6.4,14.3,9.7,14.3L13.5,14.3" ed:parentid="451" transform="matrix(1,0,0,1,1158,1151)"/>
+    <path id="464" ed:tosuperid="463" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="455" transform="matrix(1,0,0,1,1275,1108)"/>
+    <path id="466" ed:tosuperid="465" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,14.3L3.7,14.3L3.7,-8.3C3.7,-11.6,6.4,-14.3,9.7,-14.3L13.5,-14.3" ed:parentid="453" transform="matrix(1,0,0,1,1231,1208)"/>
+    <path id="468" ed:tosuperid="467" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="453" transform="matrix(1,0,0,1,1231,1222)"/>
+    <path id="470" ed:tosuperid="469" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-14.3L3.7,8.3C3.7,11.6,6.4,14.3,9.7,14.3L13.5,14.3" ed:parentid="453" transform="matrix(1,0,0,1,1231,1236)"/>
+    <path id="472" ed:tosuperid="471" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="465" transform="matrix(1,0,0,1,1386,1194)"/>
+    <path id="474" ed:tosuperid="473" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="174" transform="matrix(1,0,0,1,934,1322)"/>
+    <path id="476" ed:tosuperid="475" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,21.4L3.7,21.4L3.7,-15.4C3.7,-18.7,6.4,-21.4,9.7,-21.4L13.5,-21.4" ed:parentid="473" transform="matrix(1,0,0,1,1316,1300)"/>
+    <path id="478" ed:tosuperid="477" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,7.1L3.7,-1.1C3.7,-4.4,6.4,-7.1,9.7,-7.1L13.5,-7.1" ed:parentid="473" transform="matrix(1,0,0,1,1316,1315)"/>
+    <path id="480" ed:tosuperid="479" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-7.1L3.7,1.1C3.7,4.4,6.4,7.1,9.7,7.1L13.5,7.1" ed:parentid="473" transform="matrix(1,0,0,1,1316,1329)"/>
+    <path id="482" ed:tosuperid="481" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-21.4L3.7,15.4C3.7,18.7,6.4,21.4,9.7,21.4L13.5,21.4" ed:parentid="473" transform="matrix(1,0,0,1,1316,1343)"/>
+    <path id="484" ed:tosuperid="483" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="475" transform="matrix(1,0,0,1,1425,1279)"/>
+    <path id="487" ed:tosuperid="486" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="481" transform="matrix(1,0,0,1,1492,1365)"/>
+    <path id="489" ed:tosuperid="488" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="178" transform="matrix(1,0,0,1,942,2847)"/>
+    <path id="491" ed:tosuperid="490" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,7.1L3.7,7.1L3.7,-1.1C3.7,-4.4,6.4,-7.1,9.7,-7.1L13.5,-7.1" ed:parentid="488" transform="matrix(1,0,0,1,1156,2840)"/>
+    <path id="493" ed:tosuperid="492" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-7.1L3.7,1.1C3.7,4.4,6.4,7.1,9.7,7.1L13.5,7.1" ed:parentid="488" transform="matrix(1,0,0,1,1156,2854)"/>
+    <path id="495" ed:tosuperid="494" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="490" transform="matrix(1,0,0,1,1297,2833)"/>
+    <path id="497" ed:tosuperid="496" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="180" transform="matrix(1,0,0,1,958,2890)"/>
+    <path id="499" ed:tosuperid="498" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="496" transform="matrix(1,0,0,1,1060,2890)"/>
+    <path id="501" ed:tosuperid="500" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="182" transform="matrix(1,0,0,1,934,2991)"/>
+    <path id="505" ed:tosuperid="504" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,36.3L3.7,36.3L3.7,-30.3C3.7,-33.6,6.4,-36.3,9.7,-36.3L13.5,-36.3" ed:parentid="500" transform="matrix(1,0,0,1,1228,2954)"/>
+    <path id="507" ed:tosuperid="506" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-22L3.7,16C3.7,19.3,6.4,22,9.7,22L13.5,22" ed:parentid="500" transform="matrix(1,0,0,1,1228,3013)"/>
+    <path id="509" ed:tosuperid="508" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-36.3L3.7,30.3C3.7,33.6,6.4,36.3,9.7,36.3L13.5,36.3" ed:parentid="500" transform="matrix(1,0,0,1,1228,3027)"/>
+    <path id="511" ed:tosuperid="510" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="504" transform="matrix(1,0,0,1,1369,2918)"/>
+    <path id="513" ed:tosuperid="512" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,-5.9L-0.5,-5.9C-0.5,1.2,5.1,5.9,13.5,5.9" ed:parentid="392" transform="matrix(1,0,0,1,1749,398)"/>
+    <path id="521" ed:tosuperid="520" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="349" transform="matrix(1,0,0,1,1444,925)"/>
+    <path id="528" ed:tosuperid="527" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,-5.9L-0.5,-5.9C-0.5,1.2,5.1,5.9,13.5,5.9" ed:parentid="515" transform="matrix(1,0,0,1,1836,264)"/>
+    <path id="530" ed:tosuperid="529" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,20.1L3.7,20.1L3.7,-14.1C3.7,-17.4,6.4,-20.1,9.7,-20.1L13.5,-20.1" ed:parentid="213" transform="matrix(1,0,0,1,417,3337)"/>
+    <path id="532" ed:tosuperid="531" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M3.7,-20.1L3.7,14.1C3.7,17.4,6.4,20.1,9.7,20.1L13.5,20.1" ed:parentid="213" transform="matrix(1,0,0,1,417,3377)"/>
+    <path id="534" ed:tosuperid="533" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,-13L3.7,-13L3.7,7C3.7,10.3,6.4,13,9.7,13L13.5,13" ed:parentid="529" transform="matrix(1,0,0,1,490,3330)"/>
+    <path id="537" ed:tosuperid="536" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,-13L3.7,-13L3.7,7C3.7,10.3,6.4,13,9.7,13L13.5,13" ed:parentid="531" transform="matrix(1,0,0,1,524,3411)"/>
+    <path id="543" ed:tosuperid="542" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="261" transform="matrix(1,0,0,1,2642,1553)"/>
+    <path id="545" ed:tosuperid="544" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="263" transform="matrix(1,0,0,1,2644,1656)"/>
+    <path id="547" ed:tosuperid="546" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="265" transform="matrix(1,0,0,1,2486,1749)"/>
+    <path id="549" ed:tosuperid="548" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="267" transform="matrix(1,0,0,1,2508,1852)"/>
+    <path id="551" ed:tosuperid="550" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#454545" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:parentid="269" transform="matrix(1,0,0,1,2439,1972)"/>
+    <g ed:layout="rightmap" id="210" ed:width="299.987" ed:topictype="callout" ed:height="34" ed:parentid="206" transform="matrix(1,0,0,1,1295,817)">
+        <path fill="#424f58" stroke-linejoin="round" stroke="#424f58" d="M17,0L283,0C292.4,0,300,7.6,300,17C300,26.4,292.4,34,283,34L133.7,34L103.6,40.5L109.8,34L17,34C7.6,34,0,26.4,0,17C0,7.6,7.6,0,17,0z"/>
+        <text class="st2">
+            <tspan x="14" y="20.8" style="white-space:pre">an object required to be of type ClassDesc</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="284" ed:width="393.987" ed:topictype="callout" ed:height="34" ed:parentid="275" transform="matrix(1,0,0,1,1942,2696)">
+        <path fill="#424f58" stroke-linejoin="round" stroke="#424f58" d="M17,0L377,0C386.4,0,394,7.6,394,17C394,26.4,386.4,34,377,34L153,34L113.6,40.5L126,34L17,34C7.6,34,0,26.4,0,17C0,7.6,7.6,0,17,0z"/>
+        <text class="st2">
+            <tspan x="14" y="20.8" style="white-space:pre">proxyInterfaceName[count]  表示一个长度是count 的array</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="293" ed:width="315.987" ed:topictype="callout" ed:height="34" ed:parentid="289" transform="matrix(1,0,0,1,2306,2136)">
+        <path fill="#424f58" stroke-linejoin="round" stroke="#424f58" d="M17,0L299,0C308.4,0,316,7.6,316,17C316,26.4,308.4,34,299,34L148.6,34L49,128.1L134.6,34L17,34C7.6,34,0,26.4,0,17C0,7.6,7.6,0,17,0z"/>
+        <text class="st2">
+            <tspan x="14" y="20.8" style="white-space:pre">fieldDesc[count] 是一个 长度为 count 的 array</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="319" ed:width="402.653" ed:topictype="callout" ed:height="34" ed:parentid="317" transform="matrix(1,0,0,1,2927,2415)">
+        <path fill="#424f58" stroke-linejoin="round" stroke="#424f58" d="M17,0L385.7,0C395,0,402.7,7.6,402.7,17C402.7,26.4,395,34,385.7,34L144.8,34L100.9,40.5L116.1,34L17,34C7.6,34,0,26.4,0,17C0,7.6,7.6,0,17,0z"/>
+        <text class="st2">
+            <tspan x="14" y="20.8" style="white-space:pre">String containing the field's type, in field descriptor format</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="324" ed:width="244.653" ed:topictype="callout" ed:height="34" ed:parentid="322" transform="matrix(1,0,0,1,2116,2513)">
+        <path fill="#424f58" stroke-linejoin="round" stroke="#424f58" d="M17,0L227.7,0C237,0,244.7,7.6,244.7,17C244.7,26.4,237,34,227.7,34L120.9,34L96.6,40.5L99,34L17,34C7.6,34,0,26.4,0,17C0,7.6,7.6,0,17,0z"/>
+        <text class="st2">
+            <tspan x="14" y="20.8" style="white-space:pre">contents written by annotateClass</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="359" ed:width="241.987" ed:topictype="callout" ed:height="34" ed:parentid="357" transform="matrix(1,0,0,1,1345,1028)">
+        <path fill="#424f58" stroke-linejoin="round" stroke="#424f58" d="M17,0L225,0C234.4,0,242,7.6,242,17C242,26.4,234.4,34,225,34L92.5,34L58.3,40.5L67.5,34L17,34C7.6,34,0,26.4,0,17C0,7.6,7.6,0,17,0z"/>
+        <text class="st2">
+            <tspan x="14" y="20.8" style="white-space:pre">values[size] 是长度为 size 的 array</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="373" ed:width="249.987" ed:topictype="callout" ed:height="34" ed:parentid="369" transform="matrix(1,0,0,1,1282,331)">
+        <path fill="#424f58" stroke-linejoin="round" stroke="#424f58" d="M17,0L233,0C242.4,0,250,7.6,250,17C250,26.4,242.4,34,233,34L123.2,34L42.9,208L112.3,34L17,34C7.6,34,0,26.4,0,17C0,7.6,7.6,0,17,0z"/>
+        <text class="st2">
+            <tspan x="14" y="20.8" style="white-space:pre">classdata[] 表示 data for each class</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="392" ed:width="238.653" ed:topictype="callout" ed:height="34" ed:parentid="390" transform="matrix(1,0,0,1,1497,376)">
+        <path fill="#424f58" stroke-linejoin="round" stroke="#424f58" d="M17,0L221.7,0C231,0,238.7,7.6,238.7,17C238.7,26.4,231,34,221.7,34L100.7,34L51,52L77.3,34L17,34C7.6,34,0,26.4,0,17C0,7.6,7.6,0,17,0z"/>
+        <text class="st2">
+            <tspan x="14" y="20.8" style="white-space:pre">fields in order of class descriptor</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="404" ed:width="490.653" ed:topictype="callout" ed:height="34" ed:parentid="402" transform="matrix(1,0,0,1,1748,513)">
+        <path fill="#424f58" stroke-linejoin="round" stroke="#424f58" d="M17,0L473.7,0C483,0,490.7,7.6,490.7,17C490.7,26.4,483,34,473.7,34L202.3,34L123,52L171.5,34L17,34C7.6,34,0,26.4,0,17C0,7.6,7.6,0,17,0z"/>
+        <text class="st2">
+            <tspan x="14" y="20.8" style="white-space:pre">contents written by writeObject or writeExternal PROTOCOL_VERSION_2.</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="439" ed:width="320.653" ed:topictype="callout" ed:height="34" ed:parentid="437" transform="matrix(1,0,0,1,1727,622)">
+        <path fill="#424f58" stroke-linejoin="round" stroke="#424f58" d="M17,0L303.7,0C313,0,320.7,7.6,320.7,17C320.7,26.4,313,34,303.7,34L122.2,34L47.8,52L92.4,34L17,34C7.6,34,0,26.4,0,17C0,7.6,7.6,0,17,0z"/>
+        <text class="st2">
+            <tspan x="14" y="20.8" style="white-space:pre">Only parseable by readExternal primitive data</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="515" ed:width="540.28" ed:topictype="callout" ed:height="52" ed:parentid="367" transform="matrix(1,0,0,1,1282,233)">
+        <path fill="#424f58" stroke-linejoin="round" stroke="#424f58" d="M26,0L514.3,0C528.6,0,540.3,11.6,540.3,26C540.3,40.4,528.6,52,514.3,52L179.8,52L89.7,70.1L147,52L26,52C11.6,52,0,40.4,0,26C0,11.6,11.6,0,26,0z"/>
+        <text class="st2">
+            <tspan x="20" y="20.8" style="white-space:pre">The next number in sequence is assigned to the object being serialized or </tspan>
+            <tspan x="20" y="38.8" style="white-space:pre">deserialized</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="517" ed:width="553.24" ed:topictype="callout" ed:height="70" ed:parentid="506" transform="matrix(1,0,0,1,1242,2936)">
+        <path fill="#424f58" stroke-linejoin="round" stroke="#424f58" d="M35,0L518.2,0C537.6,0,553.2,15.7,553.2,35C553.2,54.3,537.6,70,518.2,70L155.2,70L49.7,92.7L122.2,70L35,70C15.7,70,0,54.3,0,35C0,15.7,15.7,0,35,0z"/>
+        <text class="st2">
+            <tspan x="27" y="20.8" style="white-space:pre">The set of known objects is discarded so the objects of the exception do not </tspan>
+            <tspan x="27" y="38.8" style="white-space:pre">overlap with the previously sent objects  or with objects that may be sent </tspan>
+            <tspan x="27" y="56.8" style="white-space:pre">after  the exception</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="535" ed:width="263.987" ed:topictype="callout" ed:height="34" ed:parentid="533" transform="matrix(1,0,0,1,503,3280)">
+        <path fill="#424f58" stroke-linejoin="round" stroke="#424f58" d="M17,0L247,0C256.4,0,264,7.6,264,17C264,26.4,256.4,34,247,34L127.6,34L108.3,52L115.3,34L17,34C7.6,34,0,26.4,0,17C0,7.6,7.6,0,17,0z"/>
+        <text class="st2">
+            <tspan x="14" y="20.8" style="white-space:pre">用于字符长度小于 65536 bytes 的情况</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="538" ed:width="290.653" ed:topictype="callout" ed:height="34" ed:parentid="536" transform="matrix(1,0,0,1,538,3361)">
+        <path fill="#424f58" stroke-linejoin="round" stroke="#424f58" d="M17,0L273.7,0C283,0,290.7,7.6,290.7,17C290.7,26.4,283,34,273.7,34L137.5,34L111.5,52L123.1,34L17,34C7.6,34,0,26.4,0,17C0,7.6,7.6,0,17,0z"/>
+        <text class="st2">
+            <tspan x="14" y="20.8" style="white-space:pre">用于字符长度大于等于 65536 bytes 的情况</tspan>
+        </text>
+    </g>
+    <g ed:layout="map" id="101" ed:width="73.36" ed:topictype="mainidea" ed:height="55" transform="matrix(1,0,0,1,100,22)">
+        <path fill="#f26157" stroke-linejoin="round" stroke="#f26157" d="M27.5,0L45.9,0C61,0,73.4,12.3,73.4,27.5C73.4,42.7,61,55,45.9,55L27.5,55C12.3,55,0,42.7,0,27.5C0,12.3,12.3,0,27.5,0z" stroke-width="2"/>
+        <text class="st3">
+            <tspan x="23" y="33.6" style="white-space:pre">go</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="102" ed:width="230.62" ed:height="57.3333" ed:parentid="101" transform="matrix(1,0,0,1,21,1734)">
+        <path fill="#ffffff" stroke-linejoin="round" stroke="#454545" d="M28.7,0L202,0C217.8,0,230.6,12.8,230.6,28.7C230.6,44.5,217.8,57.3,202,57.3L28.7,57.3C12.8,57.3,0,44.5,0,28.7C0,12.8,12.8,0,28.7,0z"/>
+        <text class="st4">
+            <tspan x="27" y="23.5" style="white-space:pre">Object Serialization </tspan>
+            <tspan x="27" y="44.1" style="white-space:pre">Stream Protocol</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="104" ed:width="62.3333" ed:height="22" ed:parentid="102" transform="matrix(1,0,0,1,279,1671)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">stream</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="106" ed:width="57.6667" ed:height="22" ed:parentid="156" transform="matrix(1,0,0,1,561,90)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">magic</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="108" ed:width="65" ed:height="22" ed:parentid="156" transform="matrix(1,0,0,1,561,119)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">version</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="110" ed:width="73" ed:height="22" ed:parentid="156" transform="matrix(1,0,0,1,561,1699)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">contents</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="114" ed:width="124.333" ed:height="22" ed:parentid="106" transform="matrix(1,0,0,1,645,90)">
+        <path fill="#cfebf6" d="M0,0L124.3,0L124.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="7" y="15.8" style="white-space:pre">STREAM_MAGIC</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="116" ed:width="336.333" ed:height="22" ed:parentid="114" transform="matrix(1,0,0,1,797,90)">
+        <path fill="#cfebf6" d="M0,0L336.3,0L336.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static short STREAM_MAGIC = (short)0xaced;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="118" ed:width="137.667" ed:height="22" ed:parentid="108" transform="matrix(1,0,0,1,653,119)">
+        <path fill="#cfebf6" d="M0,0L137.7,0L137.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">STREAM_VERSION</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="120" ed:width="271" ed:height="22" ed:parentid="118" transform="matrix(1,0,0,1,817,119)">
+        <path fill="#cfebf6" d="M0,0L271,0L271,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static short STREAM_VERSION = 5;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="122" ed:width="67" ed:height="22" ed:parentid="110" transform="matrix(1,0,0,1,661,1714)">
+        <path fill="#cde6c7" d="M0,0L67,0L67,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">content</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="156" ed:width="165.667" ed:height="22" ed:parentid="104" transform="matrix(1,0,0,1,368,1671)">
+        <path fill="#cde6c7" d="M0,0L165.7,0L165.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">magic version contents</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="158" ed:width="125" ed:height="22" ed:parentid="110" transform="matrix(1,0,0,1,661,147)">
+        <path fill="#cde6c7" d="M0,0L125,0L125,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">contents content</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="160" ed:width="58.3333" ed:height="22" ed:parentid="122" transform="matrix(1,0,0,1,755,1628)">
+        <path fill="#cde6c7" d="M0,0L58.3,0L58.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">object</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="162" ed:width="81.66670000000001" ed:height="22" ed:parentid="122" transform="matrix(1,0,0,1,755,3180)">
+        <path fill="#cde6c7" d="M0,0L81.7,0L81.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">blockdata</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="166" ed:width="86.33329999999999" ed:height="22" ed:parentid="160" transform="matrix(1,0,0,1,840,439)">
+        <path fill="#cde6c7" d="M0,0L86.3,0L86.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">newObject</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="168" ed:width="76.33329999999999" ed:height="22" ed:parentid="160" transform="matrix(1,0,0,1,840,808)">
+        <path fill="#cde6c7" d="M0,0L76.3,0L76.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">newClass</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="170" ed:width="79.66670000000001" ed:height="22" ed:parentid="160" transform="matrix(1,0,0,1,840,991)">
+        <path fill="#cde6c7" d="M0,0L79.7,0L79.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="7" y="15.8" style="white-space:pre">newArray</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="172" ed:width="83" ed:height="22" ed:parentid="160" transform="matrix(1,0,0,1,840,1168)">
+        <path fill="#cde6c7" d="M0,0L83,0L83,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">newString</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="174" ed:width="81" ed:height="22" ed:parentid="160" transform="matrix(1,0,0,1,840,1311)">
+        <path fill="#cde6c7" d="M0,0L81,0L81,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">newEnum</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="176" ed:width="106.333" ed:height="22" ed:parentid="160" transform="matrix(1,0,0,1,840,2088)">
+        <path fill="#cde6c7" d="M0,0L106.3,0L106.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">newClassDesc</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="178" ed:width="89" ed:height="22" ed:parentid="160" transform="matrix(1,0,0,1,840,2836)">
+        <path fill="#cde6c7" d="M0,0L89,0L89,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">prevObject</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="180" ed:width="104.333" ed:height="22" ed:parentid="160" transform="matrix(1,0,0,1,840,2879)">
+        <path fill="#cde6c7" d="M0,0L104.3,0L104.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">nullReference</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="182" ed:width="80.33329999999999" ed:height="22" ed:parentid="160" transform="matrix(1,0,0,1,840,2980)">
+        <path fill="#cde6c7" d="M0,0L80.3,0L80.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">exception</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="184" ed:width="79.66670000000001" ed:height="22" ed:parentid="160" transform="matrix(1,0,0,1,840,3081)">
+        <path fill="#cfebf6" d="M0,0L79.7,0L79.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="7" y="15.8" style="white-space:pre">TC_RESET</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="186" ed:width="268.333" ed:height="22" ed:parentid="184" transform="matrix(1,0,0,1,947,3081)">
+        <path fill="#cfebf6" d="M0,0L268.3,0L268.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte TC_RESET = (byte)0x79;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="188" ed:width="219.667" ed:height="22" ed:parentid="168" transform="matrix(1,0,0,1,943,808)">
+        <path fill="#cde6c7" d="M0,0L219.7,0L219.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">TC_CLASS classDesc newHandle</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="190" ed:width="81.66670000000001" ed:height="22" ed:parentid="188" transform="matrix(1,0,0,1,1190,731)">
+        <path fill="#cfebf6" d="M0,0L81.7,0L81.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">TC_CLASS</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="192" ed:width="270.333" ed:height="22" ed:parentid="190" transform="matrix(1,0,0,1,1299,731)">
+        <path fill="#cfebf6" d="M0,0L270.3,0L270.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte TC_CLASS = (byte)0x76;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="194" ed:width="78.33329999999999" ed:height="22" ed:parentid="188" transform="matrix(1,0,0,1,1190,808)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">classDesc</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="196" ed:width="89.66670000000001" ed:height="22" ed:parentid="188" transform="matrix(1,0,0,1,1190,886)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">newHandle</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="202" ed:width="106.333" ed:height="22" ed:parentid="194" transform="matrix(1,0,0,1,1295,760)">
+        <path fill="#cde6c7" d="M0,0L106.3,0L106.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">newClassDesc</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="204" ed:width="104.333" ed:height="22" ed:parentid="194" transform="matrix(1,0,0,1,1295,788)">
+        <path fill="#cde6c7" d="M0,0L104.3,0L104.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">nullReference</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="206" ed:width="163.667" ed:height="22" ed:parentid="194" transform="matrix(1,0,0,1,1295,857)">
+        <path fill="#cde6c7" d="M0,0L163.7,0L163.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">(ClassDesc)prevObject </tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="213" ed:width="125" ed:height="22" ed:parentid="102" transform="matrix(1,0,0,1,279,3346)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">Stream Elements</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="217" ed:width="459" ed:height="22" ed:parentid="176" transform="matrix(1,0,0,1,973,1982)">
+        <path fill="#cde6c7" d="M0,0L459,0L459,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">TC_CLASSDESC className serialVersionUID newHandle classDescInfo</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="219" ed:width="361.667" ed:height="22" ed:parentid="176" transform="matrix(1,0,0,1,973,2702)">
+        <path fill="#cde6c7" d="M0,0L361.7,0L361.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">TC_PROXYCLASSDESC newHandle proxyClassDescInfo</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="221" ed:width="115.667" ed:height="22" ed:parentid="217" transform="matrix(1,0,0,1,1459,1382)">
+        <path fill="#cfebf6" d="M0,0L115.7,0L115.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">TC_CLASSDESC</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="223" ed:width="86.33329999999999" ed:height="22" ed:parentid="217" transform="matrix(1,0,0,1,1459,1411)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">className</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="225" ed:width="123.667" ed:height="22" ed:parentid="217" transform="matrix(1,0,0,1,1459,1439)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">serialVersionUID</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="227" ed:width="89.66670000000001" ed:height="22" ed:parentid="217" transform="matrix(1,0,0,1,1459,1468)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">newHandle</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="229" ed:width="103.667" ed:height="22" ed:parentid="217" transform="matrix(1,0,0,1,1459,2039)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">classDescInfo</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="231" ed:width="159.667" ed:height="22" ed:parentid="219" transform="matrix(1,0,0,1,1362,2610)">
+        <path fill="#cfebf6" d="M0,0L159.7,0L159.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">TC_PROXYCLASSDESC</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="233" ed:width="89.66670000000001" ed:height="22" ed:parentid="219" transform="matrix(1,0,0,1,1362,2639)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">newHandle</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="235" ed:width="142.333" ed:height="22" ed:parentid="219" transform="matrix(1,0,0,1,1362,2730)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">proxyClassDescInfo</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="237" ed:width="304.333" ed:height="22" ed:parentid="221" transform="matrix(1,0,0,1,1602,1382)">
+        <path fill="#cfebf6" d="M0,0L304.3,0L304.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte TC_CLASSDESC = (byte)0x72;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="239" ed:width="353" ed:height="22" ed:parentid="229" transform="matrix(1,0,0,1,1590,2039)">
+        <path fill="#cde6c7" d="M0,0L353,0L353,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">classDescFlags fields classAnnotation superClassDesc</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="241" ed:width="111" ed:height="22" ed:parentid="239" transform="matrix(1,0,0,1,1970,1756)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">classDescFlags</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="243" ed:width="52.3333" ed:height="22" ed:parentid="239" transform="matrix(1,0,0,1,1970,2250)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">fields</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="245" ed:width="119" ed:height="22" ed:parentid="239" transform="matrix(1,0,0,1,1970,2519)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">classAnnotation</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="247" ed:width="115.667" ed:height="22" ed:parentid="239" transform="matrix(1,0,0,1,1970,2582)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">superClassDesc</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="251" ed:width="86.33329999999999" ed:height="22" ed:parentid="247" transform="matrix(1,0,0,1,2113,2582)">
+        <path fill="#cde6c7" d="M0,0L86.3,0L86.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">  classDesc</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="255" ed:width="45.6667" ed:height="22" ed:parentid="223" transform="matrix(1,0,0,1,1573,1411)">
+        <path fill="#fde1e7" d="M0,0L45.7,0L45.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(utf)</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="257" ed:width="57" ed:height="22" ed:parentid="225" transform="matrix(1,0,0,1,1610,1439)">
+        <path fill="#fde1e7" d="M0,0L57,0L57,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(long)</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="259" ed:width="56.3333" ed:height="22" ed:parentid="241" transform="matrix(1,0,0,1,2108,1756)">
+        <path fill="#fde1e7" d="M0,0L56.3,0L56.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(byte)</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="261" ed:width="437" ed:height="22" ed:parentid="259" transform="matrix(1,0,0,1,2191,1542)">
+        <path fill="#cfebf6" d="M0,0L437,0L437,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte SC_WRITE_METHOD = 0x01; //if SC_SERIALIZABLE</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="263" ed:width="439" ed:height="22" ed:parentid="259" transform="matrix(1,0,0,1,2191,1645)">
+        <path fill="#cfebf6" d="M0,0L439,0L439,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte SC_BLOCK_DATA = 0x08; //if SC_EXTERNALIZABLE</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="265" ed:width="281" ed:height="22" ed:parentid="259" transform="matrix(1,0,0,1,2191,1738)">
+        <path fill="#cfebf6" d="M0,0L281,0L281,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte SC_SERIALIZABLE = 0x02;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="267" ed:width="303" ed:height="22" ed:parentid="259" transform="matrix(1,0,0,1,2191,1841)">
+        <path fill="#cfebf6" d="M0,0L303,0L303,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte SC_EXTERNALIZABLE = 0x04;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="269" ed:width="234.333" ed:height="22" ed:parentid="259" transform="matrix(1,0,0,1,2191,1961)">
+        <path fill="#cfebf6" d="M0,0L234.3,0L234.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte SC_ENUM = 0x10;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="271" ed:width="383.667" ed:height="22" ed:parentid="235" transform="matrix(1,0,0,1,1531,2716)">
+        <path fill="#cde6c7" d="M0,0L383.7,0L383.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">(int)&lt;count> proxyInterfaceName[count] classAnnotation</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="273" ed:width="100.333" ed:height="22" ed:parentid="271" transform="matrix(1,0,0,1,1942,2667)">
+        <path fill="#fde1e7" d="M0,0L100.3,0L100.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(int)&lt;count></tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="275" ed:width="149" ed:height="22" ed:parentid="271" transform="matrix(1,0,0,1,1942,2736)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">proxyInterfaceName</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="277" ed:width="119" ed:height="22" ed:parentid="271" transform="matrix(1,0,0,1,1942,2765)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">classAnnotation</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="279" ed:width="115.667" ed:height="22" ed:parentid="235" transform="matrix(1,0,0,1,1531,2793)">
+        <path fill="#cde6c7" d="M0,0L115.7,0L115.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">superClassDesc</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="282" ed:width="45.6667" ed:height="22" ed:parentid="275" transform="matrix(1,0,0,1,2118,2736)">
+        <path fill="#fde1e7" d="M0,0L45.7,0L45.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(utf)</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="285" ed:width="229.667" ed:height="22" ed:parentid="243" transform="matrix(1,0,0,1,2049,2250)">
+        <path fill="#cde6c7" d="M0,0L229.7,0L229.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">(short)&lt;count>  fieldDesc[count]</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="287" ed:width="117" ed:height="22" ed:parentid="285" transform="matrix(1,0,0,1,2306,2045)">
+        <path fill="#fde1e7" d="M0,0L117,0L117,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(short)&lt;count></tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="289" ed:width="76.33329999999999" ed:height="22" ed:parentid="285" transform="matrix(1,0,0,1,2306,2264)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">fieldDesc</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="294" ed:width="106.333" ed:height="22" ed:parentid="289" transform="matrix(1,0,0,1,2409,2187)">
+        <path fill="#cde6c7" d="M0,0L106.3,0L106.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">primitiveDesc</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="296" ed:width="88.33329999999999" ed:height="22" ed:parentid="289" transform="matrix(1,0,0,1,2409,2393)">
+        <path fill="#cde6c7" d="M0,0L88.3,0L88.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">objectDesc</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="298" ed:width="354.333" ed:height="22" ed:parentid="231" transform="matrix(1,0,0,1,1549,2610)">
+        <path fill="#cfebf6" d="M0,0L354.3,0L354.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte TC_PROXYCLASSDESC = (byte) 0x7D;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="300" ed:width="185" ed:height="22" ed:parentid="294" transform="matrix(1,0,0,1,2543,2187)">
+        <path fill="#cde6c7" d="M0,0L185,0L185,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">prim_typecode fieldName</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="302" ed:width="254.333" ed:height="22" ed:parentid="296" transform="matrix(1,0,0,1,2525,2393)">
+        <path fill="#cde6c7" d="M0,0L254.3,0L254.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">obj_typecode fieldName className1</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="304" ed:width="84.33329999999999" ed:height="22" ed:parentid="300" transform="matrix(1,0,0,1,2755,2301)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">fieldName</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="306" ed:width="45.6667" ed:height="22" ed:parentid="304" transform="matrix(1,0,0,1,2866,2301)">
+        <path fill="#fde1e7" d="M0,0L45.7,0L45.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(utf)</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="308" ed:width="94.33329999999999" ed:height="22" ed:parentid="302" transform="matrix(1,0,0,1,2806,2435)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">className1</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="310" ed:width="118.333" ed:height="22" ed:parentid="300" transform="matrix(1,0,0,1,2755,2173)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">prim_typecode </tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="312" ed:width="84.33329999999999" ed:height="22" ed:parentid="302" transform="matrix(1,0,0,1,2806,2387)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">fieldName</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="314" ed:width="105" ed:height="22" ed:parentid="302" transform="matrix(1,0,0,1,2806,2344)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">obj_typecode</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="317" ed:width="107.667" ed:height="22" ed:parentid="308" transform="matrix(1,0,0,1,2927,2456)">
+        <path fill="#cde6c7" d="M0,0L107.7,0L107.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">(String)object</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="320" ed:width="109" ed:height="22" ed:parentid="245" transform="matrix(1,0,0,1,2116,2484)">
+        <path fill="#cde6c7" d="M0,0L109,0L109,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">endBlockData</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="322" ed:width="169" ed:height="22" ed:parentid="245" transform="matrix(1,0,0,1,2116,2553)">
+        <path fill="#cde6c7" d="M0,0L169,0L169,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">contents endBlockData </tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="325" ed:width="83" ed:height="22" ed:parentid="310" transform="matrix(1,0,0,1,2900,2073)">
+        <path fill="#cfebf6" d="M0,0L83,0L83,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">`B' // byte</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="327" ed:width="82.33329999999999" ed:height="22" ed:parentid="310" transform="matrix(1,0,0,1,2900,2102)">
+        <path fill="#cfebf6" d="M0,0L82.3,0L82.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">`C' // char</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="329" ed:width="101" ed:height="22" ed:parentid="310" transform="matrix(1,0,0,1,2900,2130)">
+        <path fill="#cfebf6" d="M0,0L101,0L101,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">`D' // double</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="331" ed:width="82.33329999999999" ed:height="22" ed:parentid="310" transform="matrix(1,0,0,1,2900,2159)">
+        <path fill="#cfebf6" d="M0,0L82.3,0L82.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">`F' // float</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="333" ed:width="95" ed:height="22" ed:parentid="310" transform="matrix(1,0,0,1,2900,2187)">
+        <path fill="#cfebf6" d="M0,0L95,0L95,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">`I' // integer</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="335" ed:width="80.33329999999999" ed:height="22" ed:parentid="310" transform="matrix(1,0,0,1,2900,2216)">
+        <path fill="#cfebf6" d="M0,0L80.3,0L80.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">`J' // long</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="337" ed:width="87" ed:height="22" ed:parentid="310" transform="matrix(1,0,0,1,2900,2244)">
+        <path fill="#cfebf6" d="M0,0L87,0L87,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">`S' // short</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="339" ed:width="106.333" ed:height="22" ed:parentid="310" transform="matrix(1,0,0,1,2900,2273)">
+        <path fill="#cfebf6" d="M0,0L106.3,0L106.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">`Z' // boolean</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="343" ed:width="83.66670000000001" ed:height="22" ed:parentid="314" transform="matrix(1,0,0,1,2938,2330)">
+        <path fill="#cfebf6" d="M0,0L83.7,0L83.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">`[' // array</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="345" ed:width="92.33329999999999" ed:height="22" ed:parentid="314" transform="matrix(1,0,0,1,2938,2358)">
+        <path fill="#cfebf6" d="M0,0L92.3,0L92.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">`L' // object</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="347" ed:width="371.667" ed:height="22" ed:parentid="170" transform="matrix(1,0,0,1,947,991)">
+        <path fill="#cde6c7" d="M0,0L371.7,0L371.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">TC_ARRAY classDesc newHandle (int)&lt;size> values[size]</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="349" ed:width="85" ed:height="22" ed:parentid="347" transform="matrix(1,0,0,1,1345,914)">
+        <path fill="#cfebf6" d="M0,0L85,0L85,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">TC_ARRAY</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="351" ed:width="78.33329999999999" ed:height="22" ed:parentid="347" transform="matrix(1,0,0,1,1345,943)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">classDesc</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="353" ed:width="89.66670000000001" ed:height="22" ed:parentid="347" transform="matrix(1,0,0,1,1345,971)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">newHandle</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="355" ed:width="87.66670000000001" ed:height="22" ed:parentid="347" transform="matrix(1,0,0,1,1345,1000)">
+        <path fill="#fde1e7" d="M0,0L87.7,0L87.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(int)&lt;size></tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="357" ed:width="58.3333" ed:height="22" ed:parentid="347" transform="matrix(1,0,0,1,1345,1069)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">values</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="361" ed:width="301.667" ed:height="22" ed:parentid="166" transform="matrix(1,0,0,1,953,439)">
+        <path fill="#cde6c7" d="M0,0L301.7,0L301.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">TC_OBJECT classDesc newHandle classdata[] </tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="363" ed:width="93" ed:height="22" ed:parentid="361" transform="matrix(1,0,0,1,1282,176)">
+        <path fill="#cfebf6" d="M0,0L93,0L93,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">TC_OBJECT </tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="365" ed:width="82.33329999999999" ed:height="22" ed:parentid="361" transform="matrix(1,0,0,1,1282,204)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">classDesc </tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="367" ed:width="89.66670000000001" ed:height="22" ed:parentid="361" transform="matrix(1,0,0,1,1282,303)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">newHandle</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="369" ed:width="76.33329999999999" ed:height="22" ed:parentid="361" transform="matrix(1,0,0,1,1282,539)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">classdata</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="371" ed:width="277.667" ed:height="22" ed:parentid="363" transform="matrix(1,0,0,1,1402,176)">
+        <path fill="#cfebf6" d="M0,0L277.7,0L277.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte TC_OBJECT = (byte)0x73;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="375" ed:width="85" ed:height="22" ed:parentid="369" transform="matrix(1,0,0,1,1385,402)">
+        <path fill="#cde6c7" d="M0,0L85,0L85,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">nowrclass </tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="377" ed:width="179.667" ed:height="22" ed:parentid="369" transform="matrix(1,0,0,1,1385,511)">
+        <path fill="#cde6c7" d="M0,0L179.7,0L179.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">wrclass objectAnnotation</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="379" ed:width="125.667" ed:height="22" ed:parentid="369" transform="matrix(1,0,0,1,1385,634)">
+        <path fill="#cde6c7" d="M0,0L125.7,0L125.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">externalContents</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="381" ed:width="130.333" ed:height="22" ed:parentid="369" transform="matrix(1,0,0,1,1385,703)">
+        <path fill="#cde6c7" d="M0,0L130.3,0L130.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">objectAnnotation</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="390" ed:width="59" ed:height="22" ed:parentid="375" transform="matrix(1,0,0,1,1497,428)">
+        <path fill="#cde6c7" d="M0,0L59,0L59,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">values</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="393" ed:width="64.33329999999999" ed:height="22" ed:parentid="377" transform="matrix(1,0,0,1,1592,456)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">wrclass</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="395" ed:width="129" ed:height="22" ed:parentid="377" transform="matrix(1,0,0,1,1592,525)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">objectAnnotation</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="397" ed:width="81" ed:height="22" ed:parentid="393" transform="matrix(1,0,0,1,1683,456)">
+        <path fill="#cde6c7" d="M0,0L81,0L81,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">nowrclass</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="400" ed:width="109" ed:height="22" ed:parentid="395" transform="matrix(1,0,0,1,1748,485)">
+        <path fill="#cde6c7" d="M0,0L109,0L109,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">endBlockData</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="402" ed:width="169" ed:height="22" ed:parentid="395" transform="matrix(1,0,0,1,1748,565)">
+        <path fill="#cde6c7" d="M0,0L169,0L169,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">contents endBlockData </tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="405" ed:width="116.333" ed:height="22" ed:parentid="162" transform="matrix(1,0,0,1,863,3138)">
+        <path fill="#cde6c7" d="M0,0L116.3,0L116.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">blockdatashort</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="407" ed:width="110.333" ed:height="22" ed:parentid="162" transform="matrix(1,0,0,1,863,3223)">
+        <path fill="#cde6c7" d="M0,0L110.3,0L110.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">blockdatalong</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="409" ed:width="343" ed:height="22" ed:parentid="405" transform="matrix(1,0,0,1,1007,3138)">
+        <path fill="#cde6c7" d="M0,0L343,0L343,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">TC_BLOCKDATA (unsigned byte)&lt;size> (byte)[size]</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="411" ed:width="120.333" ed:height="22" ed:parentid="409" transform="matrix(1,0,0,1,1377,3109)">
+        <path fill="#cfebf6" d="M0,0L120.3,0L120.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">TC_BLOCKDATA</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="413" ed:width="161.667" ed:height="22" ed:parentid="409" transform="matrix(1,0,0,1,1377,3138)">
+        <path fill="#fde1e7" d="M0,0L161.7,0L161.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(unsigned byte)&lt;size></tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="415" ed:width="89" ed:height="22" ed:parentid="409" transform="matrix(1,0,0,1,1377,3166)">
+        <path fill="#fde1e7" d="M0,0L89,0L89,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(byte)[size]</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="417" ed:width="309" ed:height="22" ed:parentid="411" transform="matrix(1,0,0,1,1524,3109)">
+        <path fill="#cfebf6" d="M0,0L309,0L309,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte TC_BLOCKDATA = (byte)0x77;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="423" ed:width="305" ed:height="22" ed:parentid="407" transform="matrix(1,0,0,1,1001,3223)">
+        <path fill="#cde6c7" d="M0,0L305,0L305,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">TC_BLOCKDATALONG (int)&lt;size> (byte)[size]</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="425" ed:width="158.333" ed:height="22" ed:parentid="423" transform="matrix(1,0,0,1,1333,3195)">
+        <path fill="#cfebf6" d="M0,0L158.3,0L158.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">TC_BLOCKDATALONG</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="427" ed:width="87.66670000000001" ed:height="22" ed:parentid="423" transform="matrix(1,0,0,1,1333,3223)">
+        <path fill="#fde1e7" d="M0,0L87.7,0L87.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(int)&lt;size></tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="429" ed:width="89" ed:height="22" ed:parentid="423" transform="matrix(1,0,0,1,1333,3252)">
+        <path fill="#fde1e7" d="M0,0L89,0L89,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(byte)[size]</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="431" ed:width="348.333" ed:height="22" ed:parentid="425" transform="matrix(1,0,0,1,1518,3195)">
+        <path fill="#cfebf6" d="M0,0L348.3,0L348.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte TC_BLOCKDATALONG = (byte)0x7A;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="433" ed:width="148.333" ed:height="22" ed:parentid="400" transform="matrix(1,0,0,1,1884,485)">
+        <path fill="#cfebf6" d="M0,0L148.3,0L148.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">TC_ENDBLOCKDATA</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="435" ed:width="337" ed:height="22" ed:parentid="433" transform="matrix(1,0,0,1,2059,485)">
+        <path fill="#cfebf6" d="M0,0L337,0L337,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte TC_ENDBLOCKDATA = (byte)0x78;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="437" ed:width="103.667" ed:height="22" ed:parentid="440" transform="matrix(1,0,0,1,1688,674)">
+        <path fill="#fde1e7" d="M0,0L103.7,0L103.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">(bytes)object</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="440" ed:width="123" ed:height="22" ed:parentid="379" transform="matrix(1,0,0,1,1538,648)">
+        <path fill="#cde6c7" d="M0,0L123,0L123,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">externalContent </tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="442" ed:width="231" ed:height="22" ed:parentid="379" transform="matrix(1,0,0,1,1538,594)">
+        <path fill="#cde6c7" d="M0,0L231,0L231,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">externalContents externalContent</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="451" ed:width="195" ed:height="22" ed:parentid="172" transform="matrix(1,0,0,1,950,1126)">
+        <path fill="#cde6c7" d="M0,0L195,0L195,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">TC_STRING newHandle (utf)</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="453" ed:width="267.667" ed:height="22" ed:parentid="172" transform="matrix(1,0,0,1,950,1211)">
+        <path fill="#cde6c7" d="M0,0L267.7,0L267.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">TC_LONGSTRING newHandle (long-utf)</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="455" ed:width="89.66670000000001" ed:height="22" ed:parentid="451" transform="matrix(1,0,0,1,1172,1097)">
+        <path fill="#cfebf6" d="M0,0L89.7,0L89.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">TC_STRING</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="457" ed:width="89.66670000000001" ed:height="22" ed:parentid="451" transform="matrix(1,0,0,1,1172,1126)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">newHandle</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="459" ed:width="45.6667" ed:height="22" ed:parentid="451" transform="matrix(1,0,0,1,1172,1154)">
+        <path fill="#fde1e7" d="M0,0L45.7,0L45.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(utf)</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="463" ed:width="278.333" ed:height="22" ed:parentid="455" transform="matrix(1,0,0,1,1289,1097)">
+        <path fill="#cfebf6" d="M0,0L278.3,0L278.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte TC_STRING = (byte)0x74;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="465" ed:width="127.667" ed:height="22" ed:parentid="453" transform="matrix(1,0,0,1,1245,1183)">
+        <path fill="#cfebf6" d="M0,0L127.7,0L127.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">TC_LONGSTRING</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="467" ed:width="89.66670000000001" ed:height="22" ed:parentid="453" transform="matrix(1,0,0,1,1245,1211)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">newHandle</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="469" ed:width="80.33329999999999" ed:height="22" ed:parentid="453" transform="matrix(1,0,0,1,1245,1240)">
+        <path fill="#fde1e7" d="M0,0L80.3,0L80.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(long-utf)</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="471" ed:width="321" ed:height="22" ed:parentid="465" transform="matrix(1,0,0,1,1399,1183)">
+        <path fill="#cfebf6" d="M0,0L321,0L321,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte TC_LONGSTRING = (byte) 0x7C;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="473" ed:width="354.333" ed:height="22" ed:parentid="174" transform="matrix(1,0,0,1,948,1311)">
+        <path fill="#cde6c7" d="M0,0L354.3,0L354.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">TC_ENUM classDesc newHandle enumConstantName</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="475" ed:width="82.33329999999999" ed:height="22" ed:parentid="473" transform="matrix(1,0,0,1,1329,1268)">
+        <path fill="#cfebf6" d="M0,0L82.3,0L82.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">TC_ENUM</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="477" ed:width="78.33329999999999" ed:height="22" ed:parentid="473" transform="matrix(1,0,0,1,1329,1297)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">classDesc</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="479" ed:width="93.66670000000001" ed:height="22" ed:parentid="473" transform="matrix(1,0,0,1,1329,1325)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">newHandle </tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="481" ed:width="149" ed:height="22" ed:parentid="473" transform="matrix(1,0,0,1,1329,1354)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">enumConstantName</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="483" ed:width="274.333" ed:height="22" ed:parentid="475" transform="matrix(1,0,0,1,1439,1268)">
+        <path fill="#cfebf6" d="M0,0L274.3,0L274.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte TC_ENUM = (byte) 0x7E;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="486" ed:width="107.667" ed:height="22" ed:parentid="481" transform="matrix(1,0,0,1,1505,1354)">
+        <path fill="#fde1e7" d="M0,0L107.7,0L107.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">(String)object</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="488" ed:width="186.333" ed:height="22" ed:parentid="178" transform="matrix(1,0,0,1,956,2836)">
+        <path fill="#cde6c7" d="M0,0L186.3,0L186.3,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">TC_REFERENCE (int)handle</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="490" ed:width="114.333" ed:height="22" ed:parentid="488" transform="matrix(1,0,0,1,1169,2822)">
+        <path fill="#cfebf6" d="M0,0L114.3,0L114.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">TC_REFERENCE</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="492" ed:width="87" ed:height="22" ed:parentid="488" transform="matrix(1,0,0,1,1169,2850)">
+        <path fill="#fde1e7" d="M0,0L87,0L87,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(int)handle</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="494" ed:width="303" ed:height="22" ed:parentid="490" transform="matrix(1,0,0,1,1311,2822)">
+        <path fill="#cfebf6" d="M0,0L303,0L303,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte TC_REFERENCE = (byte)0x71;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="496" ed:width="75" ed:height="22" ed:parentid="180" transform="matrix(1,0,0,1,971,2879)">
+        <path fill="#cfebf6" d="M0,0L75,0L75,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">TC_NULL</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="498" ed:width="263.667" ed:height="22" ed:parentid="496" transform="matrix(1,0,0,1,1073,2879)">
+        <path fill="#cfebf6" d="M0,0L263.7,0L263.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte TC_NULL = (byte)0x70;</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="500" ed:width="267.667" ed:height="22" ed:parentid="182" transform="matrix(1,0,0,1,947,2980)">
+        <path fill="#cde6c7" d="M0,0L267.7,0L267.7,22L0,22L0,0z"/>
+        <text class="st6">
+            <tspan x="8" y="15.8" style="white-space:pre">TC_EXCEPTION reset (Throwable)object</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="504" ed:width="113.667" ed:height="22" ed:parentid="500" transform="matrix(1,0,0,1,1242,2907)">
+        <path fill="#cfebf6" d="M0,0L113.7,0L113.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">TC_EXCEPTION</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="506" ed:width="49.6667" ed:height="22" ed:parentid="500" transform="matrix(1,0,0,1,1242,3024)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">reset</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="508" ed:width="134.333" ed:height="22" ed:parentid="500" transform="matrix(1,0,0,1,1242,3052)">
+        <path fill="#fde1e7" d="M0,0L134.3,0L134.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(Throwable)object</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="510" ed:width="303" ed:height="22" ed:parentid="504" transform="matrix(1,0,0,1,1383,2907)">
+        <path fill="#cfebf6" d="M0,0L303,0L303,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte TC_EXCEPTION = (byte)0x7B;</tspan>
+        </text>
+    </g>
+    <g id="512" ed:width="470.667" ed:height="23.5" ed:parentid="392" transform="matrix(1,0,0,1,1763,381)">
+        <path stroke-linejoin="round" fill="none" stroke="#454545" d="M0,23.5L470.7,23.5"/>
+        <text class="st5">
+            <tspan x="7" y="15.4" style="white-space:pre">The size and types are described by the classDesc for the current object</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="520" ed:width="273.667" ed:height="22" ed:parentid="349" transform="matrix(1,0,0,1,1457,914)">
+        <path fill="#cfebf6" d="M0,0L273.7,0L273.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">final static byte TC_ARRAY = (byte)0x75;</tspan>
+        </text>
+    </g>
+    <g id="527" ed:width="334.667" ed:height="23.5" ed:parentid="515" transform="matrix(1,0,0,1,1849,247)">
+        <path stroke-linejoin="round" fill="none" stroke="#454545" d="M0,23.5L334.7,23.5"/>
+        <text class="st5">
+            <tspan x="7" y="15.4" style="white-space:pre">是一个从 0x7E0000 开始的 int，可以认为是某种下标</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="529" ed:width="45.6667" ed:height="22" ed:parentid="213" transform="matrix(1,0,0,1,431,3306)">
+        <path fill="#fde1e7" d="M0,0L45.7,0L45.7,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(utf)</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="531" ed:width="80.33329999999999" ed:height="22" ed:parentid="213" transform="matrix(1,0,0,1,431,3387)">
+        <path fill="#fde1e7" d="M0,0L80.3,0L80.3,22L0,22L0,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">(utf-long)</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="533" ed:width="201.667" ed:height="22" ed:parentid="529" transform="matrix(1,0,0,1,503,3332)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">&lt;2byte的长度>&lt;字符串内容></tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="536" ed:width="201.667" ed:height="22" ed:parentid="531" transform="matrix(1,0,0,1,538,3413)">
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">&lt;8byte的长度>&lt;字符串内容></tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="542" ed:width="517" ed:height="114" ed:parentid="261" transform="matrix(1,0,0,1,2655,1496)">
+        <path stroke-linejoin="round" fill="none" stroke="#454545" d="M4,0L513,0C515.7,0,517,1.3,517,4L517,110C517,112.7,515.7,114,513,114L4,114C1.3,114,0,112.7,0,110L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">is set if the Serializable class writing the stream had a `writeObject` method </tspan>
+            <tspan x="9" y="33.8" style="white-space:pre">that may have written additional data to the stream. In this case a </tspan>
+            <tspan x="9" y="51.8" style="white-space:pre">*TC_ENDBLOCKDATA* marker is always expected to terminate the data for </tspan>
+            <tspan x="9" y="69.8" style="white-space:pre">that class.</tspan>
+            <tspan x="9" y="105.8" style="white-space:pre">如果有 writeObject 就设这个</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="544" ed:width="517" ed:height="78" ed:parentid="263" transform="matrix(1,0,0,1,2657,1617)">
+        <path stroke-linejoin="round" fill="none" stroke="#454545" d="M4,0L513,0C515.7,0,517,1.3,517,4L517,74C517,76.7,515.7,78,513,78L4,78C1.3,78,0,76.7,0,74L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">is set if the `Externalizable` class is written into the stream using </tspan>
+            <tspan x="9" y="33.8" style="white-space:pre">`STREAM_PROTOCOL_2`. By default, this is the protocol used to write </tspan>
+            <tspan x="9" y="51.8" style="white-space:pre">`Externalizable` objects into the stream in JDK 1.2. JDK 1.1 writes </tspan>
+            <tspan x="9" y="69.8" style="white-space:pre">*STREAM_PROTOCOL_1*.</tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="546" ed:width="517" ed:height="96" ed:parentid="265" transform="matrix(1,0,0,1,2499,1701)">
+        <path stroke-linejoin="round" fill="none" stroke="#454545" d="M4,0L513,0C515.7,0,517,1.3,517,4L517,92C517,94.7,515.7,96,513,96L4,96C1.3,96,0,94.7,0,92L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st6">
+            <tspan x="9" y="15.8" style="white-space:pre">is set if the class that wrote the stream extended `java.io.Serializable` but not </tspan>
+            <tspan x="9" y="33.8" style="white-space:pre">`java.io.Externalizable`, the class reading the stream must also extend </tspan>
+            <tspan x="9" y="51.8" style="white-space:pre">`java.io.Serializable` and the default serialization mechanism is to be used.</tspan>
+            <tspan x="9" y="87.8" style="white-space:pre">继承了  `java.io.Serializable`  但是没有继承 `java.io.Externalizable` </tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="548" ed:width="517" ed:height="96" ed:parentid="267" transform="matrix(1,0,0,1,2521,1804)">
+        <path stroke-linejoin="round" fill="none" stroke="#454545" d="M4,0L513,0C515.7,0,517,1.3,517,4L517,92C517,94.7,515.7,96,513,96L4,96C1.3,96,0,94.7,0,92L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">is set if the class that wrote the stream extended `java.io.Externalizable`, the </tspan>
+            <tspan x="9" y="33.8" style="white-space:pre">class reading the data must also extend `Externalizable` and the data will be </tspan>
+            <tspan x="9" y="51.8" style="white-space:pre">read using its `writeExternal` and `readExternal` methods.</tspan>
+            <tspan x="9" y="87.8" style="white-space:pre">继承了  `java.io.Externalizable` </tspan>
+        </text>
+    </g>
+    <g ed:layout="rightmap" id="550" ed:width="517" ed:height="132" ed:parentid="269" transform="matrix(1,0,0,1,2453,1906)">
+        <path stroke-linejoin="round" fill="none" stroke="#454545" d="M4,0L513,0C515.7,0,517,1.3,517,4L517,128C517,130.7,515.7,132,513,132L4,132C1.3,132,0,130.7,0,128L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st5">
+            <tspan x="9" y="15.8" style="white-space:pre">is set if the class that wrote the stream was an enum type. The receiver's </tspan>
+            <tspan x="9" y="33.8" style="white-space:pre">corresponding class must also be an enum type. Data for constants of the </tspan>
+            <tspan x="9" y="51.8" style="white-space:pre">enum type will be written and read as described in [Section 1.12, </tspan>
+            <tspan x="9" y="69.8" style="white-space:pre">"Serialization of Enum Constants](https://docs.oracle.com/javase/8/docs/</tspan>
+            <tspan x="9" y="87.8" style="white-space:pre">platform/serialization/spec/serial-arch.html#a6469)".</tspan>
+            <tspan x="9" y="123.8" style="white-space:pre">如果是 enum 就设置</tspan>
+        </text>
+    </g>
+    <symbol id="plus">
+        <path fill="url(#lg1)" d="M11,6C11,8.8,8.8,11,6,11C3.2,11,1,8.8,1,6C1,3.2,3.2,1,6,1C8.8,1,11,3.2,11,6z"/>
+        <path fill="none" stroke="#46a000" d="M11,6C11,8.8,8.8,11,6,11C3.2,11,1,8.8,1,6C1,3.2,3.2,1,6,1C8.8,1,11,3.2,11,6zM3,6L9,6M6,3L6,9" stroke-width="0.7"/>
+    </symbol>
+    <symbol id="minus">
+        <path fill="url(#lg1)" d="M11,6C11,8.8,8.8,11,6,11C3.2,11,1,8.8,1,6C1,3.2,3.2,1,6,1C8.8,1,11,3.2,11,6z"/>
+        <path fill="none" stroke="#46a000" d="M11,6C11,8.8,8.8,11,6,11C3.2,11,1,8.8,1,6C1,3.2,3.2,1,6,1C8.8,1,11,3.2,11,6zM3,6L9,6" stroke-width="0.7"/>
+    </symbol>
+    <g ed:togtopicid="392" transform="translate(1737,387)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="515" transform="translate(1823,253)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="101" transform="translate(130,78)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="102" transform="translate(253,1756)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="104" transform="translate(342,1676)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="106" transform="translate(619,95)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="108" transform="translate(627,124)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="110" transform="translate(635,1704)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="114" transform="translate(771,95)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="118" transform="translate(791,124)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="122" transform="translate(729,1719)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="156" transform="translate(535,1676)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="160" transform="translate(814,1633)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="162" transform="translate(837,3185)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="166" transform="translate(927,444)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="168" transform="translate(917,813)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="170" transform="translate(921,996)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="172" transform="translate(924,1173)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="174" transform="translate(922,1316)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="176" transform="translate(947,2093)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="178" transform="translate(930,2841)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="180" transform="translate(945,2884)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="182" transform="translate(921,2985)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="184" transform="translate(921,3086)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="188" transform="translate(1164,813)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="190" transform="translate(1273,736)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="194" transform="translate(1269,813)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="213" transform="translate(405,3351)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="217" transform="translate(1433,1987)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="219" transform="translate(1336,2707)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="221" transform="translate(1576,1387)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="223" transform="translate(1547,1416)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="225" transform="translate(1584,1444)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="229" transform="translate(1564,2044)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="231" transform="translate(1523,2615)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="235" transform="translate(1505,2735)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="239" transform="translate(1944,2044)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="241" transform="translate(2082,1761)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="243" transform="translate(2023,2255)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="245" transform="translate(2090,2524)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="247" transform="translate(2087,2587)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="259" transform="translate(2165,1761)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="261" transform="translate(2629,1547)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="263" transform="translate(2631,1650)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="265" transform="translate(2473,1743)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="267" transform="translate(2495,1846)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="269" transform="translate(2427,1966)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="271" transform="translate(1916,2721)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="275" transform="translate(2092,2741)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="285" transform="translate(2280,2255)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="289" transform="translate(2383,2269)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="294" transform="translate(2517,2192)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="296" transform="translate(2499,2398)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="300" transform="translate(2729,2192)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="302" transform="translate(2780,2398)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="304" transform="translate(2840,2306)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="308" transform="translate(2901,2440)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="310" transform="translate(2874,2178)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="314" transform="translate(2912,2349)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="347" transform="translate(1319,996)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="349" transform="translate(1431,919)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="361" transform="translate(1256,444)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="363" transform="translate(1376,181)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="369" transform="translate(1359,544)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="375" transform="translate(1471,407)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="377" transform="translate(1566,516)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="379" transform="translate(1512,639)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="393" transform="translate(1657,461)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="395" transform="translate(1722,530)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="400" transform="translate(1858,490)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="405" transform="translate(981,3143)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="407" transform="translate(975,3228)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="409" transform="translate(1351,3143)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="411" transform="translate(1498,3114)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="423" transform="translate(1307,3228)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="425" transform="translate(1492,3200)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="433" transform="translate(2033,490)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="440" transform="translate(1662,653)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="451" transform="translate(1146,1131)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="453" transform="translate(1219,1216)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="455" transform="translate(1263,1102)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="465" transform="translate(1373,1188)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="473" transform="translate(1303,1316)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="475" transform="translate(1413,1273)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="481" transform="translate(1479,1359)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="488" transform="translate(1143,2841)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="490" transform="translate(1285,2827)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="496" transform="translate(1047,2884)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="500" transform="translate(1216,2985)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="504" transform="translate(1357,2912)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="529" transform="translate(477,3311)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="531" transform="translate(512,3392)">
+        <use xlink:href="#minus"/>
+    </g>
+</svg>
+</div>
+        <div id="copyright">Created With  <a href="https://www.edrawsoft.com/" target="_blank" title="edrawsoft">MindMaster</a></div>
+      </div>
+    </div>
+    <script>eval(atob('dmFyIG11YT13aW5kb3cubmF2aWdhdG9yLnVzZXJBZ2VudDsNCnZhciB1YT0obXVhLmluZGV4T2YoJ3J2OjExJykrbXVhLmluZGV4T2YoJ01TSUUnKSk+PTA7DQpkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc3ZnLWNvbnRhaW5lcicpLm9uY29udGV4dG1lbnUgPSBmdW5jdGlvbiAoZXZlbnQpIHsNCiAgICBldmVudC5wcmV2ZW50RGVmYXVsdCgpOw0KfQ0KZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3N2Zy1jb250YWluZXInKS5vbm1vdXNlZG93biA9IGZ1bmN0aW9uIChldmVudCkgew0KICAgIGlmKGV2ZW50LndoaWNoID09Myl7DQogICAgICAgIHRoaXMuc3R5bGUuY3Vyc29yID0gJ3BvaW50ZXInOw0KICAgICAgICB0aGlzLm9ubW91c2Vtb3ZlID0gZnVuY3Rpb24gKGV2KSB7DQogICAgICAgICAgICB0aGlzLnNjcm9sbEJ5KC0oZXYubW92ZW1lbnRYKSwgMCk7DQogICAgICAgICAgICB3aW5kb3cuc2Nyb2xsQnkoMCwtKGV2Lm1vdmVtZW50WSkpDQogICAgICAgIH0NCiAgICAgICAgdGhpcy5vbm1vdXNldXAgPSBmdW5jdGlvbiAoKSB7DQogICAgICAgICAgICB0aGlzLnN0eWxlLmN1cnNvciA9ICBudWxsOw0KICAgICAgICAgICAgdGhpcy5vbm1vdXNldXAgPSBudWxsOw0KICAgICAgICAgICAgdGhpcy5vbm1vdXNlbW92ZSA9IG51bGw7DQogICAgICAgIH0NCiAgICB9DQp9DQpOdW1iZXIucHJvdG90eXBlLnRvc3VpdHN2Zz1mdW5jdGlvbiAoKSB7DQogICAgdmFyIG51bT10aGlzLnZhbHVlT2YoKTsNCiAgICBpZihudW0lMT09PTApew0KICAgICAgICByZXR1cm4gbnVtKzAuNQ0KICAgIH1lbHNlIHJldHVybiBudW07DQp9Ow0KTnVtYmVyLnByb3RvdHlwZS5wbHVzej1mdW5jdGlvbigpIHsNCiAgICB2YXIgbnVtPXRoaXMudmFsdWVPZigpOw0KICAgIHJldHVybiBudW08MTA/JzAnK251bTpudW07DQp9Ow0KZnVuY3Rpb24gcGFyc2VEYXRlKG51bSkgew0KICAgIHZhciBkYXRlID0gbmV3IERhdGUobnVtKTsNCiAgICB2YXIgWSA9IGRhdGUuZ2V0RnVsbFllYXIoKSArICctJzsNCiAgICB2YXIgTSA9IChkYXRlLmdldE1vbnRoKCkrMSkucGx1c3ooKSArICctJzsNCiAgICB2YXIgRCA9IGRhdGUuZ2V0RGF0ZSgpLnBsdXN6KCkgKyAnICc7DQogICAgdmFyIGggPSBkYXRlLmdldEhvdXJzKCkucGx1c3ooKSArICc6JzsNCiAgICB2YXIgbW0gPSBkYXRlLmdldE1pbnV0ZXMoKS5wbHVzeigpICsgJzonOw0KICAgIHZhciBzID0gZGF0ZS5nZXRTZWNvbmRzKCkucGx1c3ooKTsNCiAgICByZXR1cm4gWStNK0QraCttbStzOw0KfQ0KLy8tLXByZWRlZmluZWQNCi8vY29tbWVudC0tDQp2YXIgY29tbWVudHM9ZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnZz5nW2VkXFw6Y29tbWVudF0nKTsNCmZ1bmN0aW9uIGdldGN3aChwb3B1cCkgew0KICAgIGRvY3VtZW50LmJvZHkuZ2V0RWxlbWVudHNCeVRhZ05hbWUoJ3N2ZycpWzBdLmFwcGVuZENoaWxkKHBvcHVwKTsNCiAgICB2YXIgdz1wb3B1cC5nZXRCb3VuZGluZ0NsaWVudFJlY3QoKS53aWR0aDsNCiAgICB2YXIgaD1wb3B1cC5nZXRCb3VuZGluZ0NsaWVudFJlY3QoKS5oZWlnaHQ7DQogICAgcmV0dXJuIFt3LGhdDQp9DQpmb3IodmFyIGk9MDtpPGNvbW1lbnRzLmxlbmd0aDtpKyspew0KICAgIHZhciBwb3B1cD1kb2N1bWVudC5jcmVhdGVFbGVtZW50TlMoJ2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJywnZycpOw0KICAgIHZhciBwb3B1cFI9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdyZWN0Jyk7DQogICAgdmFyIGhvdmVyPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdyZWN0Jyk7DQogICAgdmFyIG9saW5lPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdyZWN0Jyk7DQogICAgaG92ZXIuc2V0QXR0cmlidXRlKCdmaWxsJywnI2NkY2RmZicpOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgneCcsJzAnKTsNCiAgICBob3Zlci5zZXRBdHRyaWJ1dGUoJ3knLCcwJyk7DQogICAgaG92ZXIuc2V0QXR0cmlidXRlKCdoZWlnaHQnLCcxNicpOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnd2lkdGgnLCcxNicpOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnZmlsbC1vcGFjaXR5JywnMC42Jyk7DQogICAgaG92ZXIuc2V0QXR0cmlidXRlKCd0cmFuc2Zvcm0nLGNvbW1lbnRzW2ldLnF1ZXJ5U2VsZWN0b3IoJ3VzZScpLmdldEF0dHJpYnV0ZSgndHJhbnNmb3JtJykpOw0KICAgIGhvdmVyLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgIGNvbW1lbnRzW2ldLmFwcGVuZENoaWxkKGhvdmVyKTsNCiAgICB2YXIgYT1KU09OLnBhcnNlKGNvbW1lbnRzW2ldLmdldEF0dHJpYnV0ZSgnZWQ6Y29tbWVudCcpKTsNCiAgICB2YXIgaGVpZ2h0PTA7DQogICAgdmFyIGNhcnI9W107DQogICAgZm9yKHZhciBqPTA7ajxhLmxlbmd0aDtqKyspew0KICAgICAgICB2YXIgc3RhbXA9TnVtYmVyKGFbal0uRGF0ZSkqMTAwMDsNCiAgICAgICAgdmFyIHRpbWU9cGFyc2VEYXRlKHN0YW1wKTsNCiAgICAgICAgdmFyIG5hbWU9YVtqXS5OYW1lOw0KICAgICAgICB2YXIgbWVzc2FnZT1hW2pdLk1lc3NhZ2U7DQogICAgICAgIHZhciBtZXNzYWdlQXJyPW1lc3NhZ2Uuc3BsaXQoL1xuLyk7DQogICAgICAgIHZhciBvPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdnJyk7DQogICAgICAgIHZhciBuPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIHZhciB0PWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIHZhciBtPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIG4uc2V0QXR0cmlidXRlKCd4Jyw1KTsNCiAgICAgICAgbi5zZXRBdHRyaWJ1dGUoJ3knLDEyKTsNCiAgICAgICAgbi5zZXRBdHRyaWJ1dGUoJ2ZpbGwnLCcjMDA2ZWZmJyk7DQogICAgICAgIG4udGV4dENvbnRlbnQ9bmFtZSsnOiAnOw0KICAgICAgICBuLnNldEF0dHJpYnV0ZSgnZm9udC1zaXplJywnMTInKTsNCiAgICAgICAgdC5zZXRBdHRyaWJ1dGUoJ3gnLDIwMCk7DQogICAgICAgIHQuc2V0QXR0cmlidXRlKCd5JywxMik7DQogICAgICAgIHQuc2V0QXR0cmlidXRlKCdmaWxsJywnIzk2OTY5NicpOw0KICAgICAgICB0LnRleHRDb250ZW50PXRpbWU7DQogICAgICAgIHQuc2V0QXR0cmlidXRlKCdmb250LXNpemUnLCcxMCcpOw0KICAgICAgICBtLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJywndHJhbnNsYXRlKDIwLDI3KScpOw0KICAgICAgICBtLnNldEF0dHJpYnV0ZSgnZm9udC1zaXplJywnMTInKTsNCiAgICAgICAgZm9yKHZhciBrPTA7azxtZXNzYWdlQXJyLmxlbmd0aDtrKyspew0KICAgICAgICAgICAgdmFyIHRzPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0c3BhbicpOw0KICAgICAgICAgICAgdHMuc2V0QXR0cmlidXRlKCd4JywnMCcpOw0KICAgICAgICAgICAgdHMuc2V0QXR0cmlidXRlKCd5JyxrKjE2KTsNCiAgICAgICAgICAgIHRzLnRleHRDb250ZW50PW1lc3NhZ2VBcnJba107DQogICAgICAgICAgICBtLmFwcGVuZENoaWxkKHRzKTsNCiAgICAgICAgfQ0KICAgICAgICBvLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJywndHJhbnNsYXRlKDAsJytoZWlnaHQrJyknKTsNCiAgICAgICAgby5hcHBlbmRDaGlsZChuKTsNCiAgICAgICAgby5hcHBlbmRDaGlsZCh0KTsNCiAgICAgICAgby5hcHBlbmRDaGlsZChtKTsNCiAgICAgICAgY2Fyci5wdXNoKG8pOw0KICAgICAgICBwb3B1cC5hcHBlbmRDaGlsZChvKTsNCiAgICAgICAgaGVpZ2h0PShtZXNzYWdlQXJyLmxlbmd0aCsxKSoxNitoZWlnaHQ7DQogICAgfQ0KICAgIHZhciB3YXJyPWdldGN3aChwb3B1cCk7DQogICAgb2xpbmUuc2V0QXR0cmlidXRlKCd4JywnMCcpOw0KICAgIG9saW5lLnNldEF0dHJpYnV0ZSgneScsJzAnKTsNCiAgICB2YXIgb3c9d2FyclswXSsxMC41Ow0KICAgIHZhciBvaD13YXJyWzFdKzM7DQogICAgb2xpbmUuc2V0QXR0cmlidXRlKCd3aWR0aCcsb3cpOw0KICAgIG9saW5lLnNldEF0dHJpYnV0ZSgnaGVpZ2h0JyxvaCk7DQogICAgb2xpbmUuc2V0QXR0cmlidXRlKCdmaWxsJywnd2hpdGUnKTsNCiAgICBvbGluZS5zZXRBdHRyaWJ1dGUoJ3N0cm9rZScsJyM2NTY1NjUnKTsNCiAgICBwb3B1cC5hcHBlbmRDaGlsZChvbGluZSk7DQogICAgdmFyIGw9Y2Fyci5sZW5ndGg7DQogICAgd2hpbGUobC0tKXsNCiAgICAgICAgcG9wdXAuYXBwZW5kQ2hpbGQoY2FycltsXSk7DQogICAgfQ0KICAgIHBvcHVwLm9ubW91c2VvdmVyPWZ1bmN0aW9uICgpIHsNCiAgICAgICAgdGhpcy5zdHlsZS5kaXNwbGF5PSdibG9jayc7DQogICAgfTsNCiAgICBwb3B1cC5vbm1vdXNlb3V0PWZ1bmN0aW9uICgpIHsNCiAgICAgICAgdGhpcy5zdHlsZS5kaXNwbGF5ID0gJ25vbmUnOw0KICAgIH07DQogICAgdmFyIGNzPWNvbW1lbnRzW2ldLnF1ZXJ5U2VsZWN0b3IoJ3VzZScpLmdldEF0dHJpYnV0ZSgndHJhbnNmb3JtJykubWF0Y2goL1woKFxTKnxcUypcc1xTKilcKS8pWzFdLnNwbGl0KC8gfCwvKTsNCiAgICB2YXIgcHM9Y29tbWVudHNbaV0ucGFyZW50Tm9kZS5nZXRBdHRyaWJ1dGUoJ3RyYW5zZm9ybScpOw0KICAgIGlmKHBzLnN1YnN0cigwLDIpID09ICd0cicpew0KICAgICAgICB2YXIgcHBzID0gcHMubWF0Y2goL1woKFxTKnxcUypcc1xTKilcKS8pWzFdLnNwbGl0KC8gfCwvKTsNCiAgICAgICAgdmFyIHg9cGFyc2VGbG9hdChjc1swXSkrcGFyc2VGbG9hdChwcHNbMF0pOw0KICAgICAgICB2YXIgeT1wYXJzZUZsb2F0KHBwc1sxXSk7DQogICAgICAgIHg9eC50b3N1aXRzdmcoKTsNCiAgICAgICAgeT15LnRvc3VpdHN2ZygpOw0KICAgICAgICB2YXIgdHJzdHIgPSAndHJhbnNsYXRlKCcreCsnLCcreSsnKSc7DQogICAgfQ0KICAgIGVsc2UgaWYocHMuc3Vic3RyKDAsMikgPT0gJ21hJyl7DQogICAgICAgIHZhciBwcHMgPSBwcy5tYXRjaCgvKFwtP1xkKyhcLlxkKyk/KVtcLCBdKFwtP1xkKyhcLlxkKyk/KVtcLCBdKFwtP1xkKyhcLlxkKyk/KVtcLCBdKFwtP1xkKyhcLlxkKyk/KVtcLCBdKFwtP1xkKyhcLlxkKyk/KVtcLCBdKFwtP1xkKyhcLlxkKyk/KVwpJC8pOw0KICAgICAgICB2YXIgbWFBcnIgPSBbcGFyc2VGbG9hdChwcHNbMV0pLHBhcnNlRmxvYXQocHBzWzNdKSxwYXJzZUZsb2F0KHBwc1s1XSkscGFyc2VGbG9hdChwcHNbN10pLHBhcnNlRmxvYXQocHBzWzldKSxwYXJzZUZsb2F0KHBwc1sxMV0pXTsNCiAgICAgICAgaWYobWFBcnJbMV0gPT0gMCl7DQogICAgICAgICAgICB2YXIgeCA9IHBhcnNlRmxvYXQoY3NbMF0pOw0KICAgICAgICAgICAgdmFyIHk9IHBhcnNlRmxvYXQoY3NbMV0pKzE2Ow0KICAgICAgICAgICAgdmFyIHgxID0geCAqIG1hQXJyWzBdICsgeSAqIG1hQXJyWzJdICsgbWFBcnJbNF07DQogICAgICAgICAgICB2YXIgeTEgPSB4ICogbWFBcnJbMV0gKyB5ICogbWFBcnJbM10gKyBtYUFycls1XTsNCiAgICAgICAgICAgIHgxPXgxLnRvc3VpdHN2ZygpOw0KICAgICAgICAgICAgeTE9eTEudG9zdWl0c3ZnKCk7DQogICAgICAgICAgICB2YXIgdHJzdHIgPSAgJ3RyYW5zbGF0ZSgnK3gxKycsJyt5MSsnKSc7DQogICAgICAgIH1lbHNlew0KICAgICAgICAgICAgdmFyIHggPSBwYXJzZUZsb2F0KGNzWzBdKSsxNjsNCiAgICAgICAgICAgIHZhciB5ID0gcGFyc2VGbG9hdChjc1sxXSkrMTY7DQogICAgICAgICAgICB2YXIgeDEgPSB4ICogbWFBcnJbMF0gKyB5ICogbWFBcnJbMl0gKyBtYUFycls0XTsNCiAgICAgICAgICAgIHZhciB5MSA9IHggKiBtYUFyclsxXSArIHkgKiBtYUFyclszXSArIG1hQXJyWzVdOw0KICAgICAgICAgICAgeCA9IHBhcnNlRmxvYXQoY3NbMF0pKzE2Ow0KICAgICAgICAgICAgeSA9IHBhcnNlRmxvYXQoY3NbMV0pOw0KICAgICAgICAgICAgdmFyIHgyID0geCAqIG1hQXJyWzBdICsgeSAqIG1hQXJyWzJdICsgbWFBcnJbNF07DQogICAgICAgICAgICB2YXIgeTIgPSB4ICogbWFBcnJbMV0gKyB5ICogbWFBcnJbM10gKyBtYUFycls1XTsNCiAgICAgICAgICAgIHZhciBmeCA9IHgxPHgyP3gxLnRvc3VpdHN2ZygpOiB4Mi50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgIHZhciBmeSA9IHkxPnkyP3kxLnRvc3VpdHN2ZygpOiB5Mi50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgIHZhciBvZmZ5ID0gTWF0aC5hYnMoeTEteTIpOw0KICAgICAgICAgICAgdmFyIHRyc3RyID0gICd0cmFuc2xhdGUoJytmeCsnLCcrZnkrJyknOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgnaGVpZ2h0JyxvZmZ5LnRvU3RyaW5nKCkpOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgnd2lkdGgnLCcxNicpOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgneScsKC1vZmZ5KS50b1N0cmluZygpKTsNCiAgICAgICAgICAgIHBvcHVwUi5zZXRBdHRyaWJ1dGUoJ2ZpbGwnLCd0cmFuc3BhcmVudCcpOw0KICAgICAgICAgICAgcG9wdXAuYXBwZW5kQ2hpbGQocG9wdXBSKTsNCiAgICAgICAgfQ0KICAgIH0NCiAgICBwb3B1cC5zZXRBdHRyaWJ1dGUoJ3RyYW5zZm9ybScsdHJzdHIpOw0KICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgnY29tbWVudCcsJycpOw0KICAgIHBvcHVwLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgnZWQ6Y29tbWVudGlkJyxjb21tZW50c1tpXS5wYXJlbnROb2RlLmlkKTsNCiAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcjc3ZnLWNvbnRhaW5lciA+IHN2ZycpLmFwcGVuZENoaWxkKHBvcHVwKTsNCiAgICBjb21tZW50c1tpXS5vbm1vdXNlb3Zlcj1mdW5jdGlvbiAoKSB7DQogICAgICAgIHZhciBjb21tZW50aWQ9dGhpcy5wYXJlbnROb2RlLmlkOw0KICAgICAgICB0aGlzLnF1ZXJ5U2VsZWN0b3IoJ3JlY3QnKS5zdHlsZS5kaXNwbGF5PSdibG9jayc7DQogICAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoImdbZWRcXDpjb21tZW50aWQ9JyIrY29tbWVudGlkKyInXVtjb21tZW50XSIpLnN0eWxlLmRpc3BsYXk9J2Jsb2NrJzsNCiAgICB9Ow0KICAgIGNvbW1lbnRzW2ldLm9ubW91c2VvdXQ9ZnVuY3Rpb24gKCkgew0KICAgICAgICB2YXIgY29tbWVudGlkPXRoaXMucGFyZW50Tm9kZS5pZDsNCi8vICAgICAgICB3aW5kb3cuZ2V0U2VsZWN0aW9uKCkucmVtb3ZlQWxsUmFuZ2VzKCk7DQogICAgICAgIHRoaXMucXVlcnlTZWxlY3RvcigncmVjdCcpLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCJnW2VkXFw6Y29tbWVudGlkPSciK2NvbW1lbnRpZCsiJ11bY29tbWVudF0iKS5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICB9DQp9DQovLy0tY29tbWVudA0KLy9ub3RlLS0NCmlmKCF1YSl7DQogICAgdmFyIG5vdGVzPWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJ2c+Z1tlZFxcOm5vdGVdJyk7DQogICAgZnVuY3Rpb24gZ2V0d2gocyxwKSB7DQogICAgICAgIHZhciBtYWlucD1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTsNCiAgICAgICAgbWFpbnAuc3R5bGUuY3NzVGV4dD1zOw0KICAgICAgICBtYWlucC5zdHlsZS5kaXNwbGF5PSdpbmxpbmUtYmxvY2snOw0KCQltYWlucC5zdHlsZS5tYXhXaWR0aCA9ICc0MDBweCc7DQoJCW1haW5wLnN0eWxlLndvcmRCcmVhayA9ICdicmVhay1hbGwnOw0KICAgICAgICBtYWlucC5pbm5lckhUTUw9cDsNCiAgICAgICAgZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChtYWlucCk7DQogICAgICAgIHZhciB3PW1haW5wLmNsaWVudFdpZHRoOw0KICAgICAgICB2YXIgaD1tYWlucC5jbGllbnRIZWlnaHQ7DQogICAgICAgIGRvY3VtZW50LmJvZHkucmVtb3ZlQ2hpbGQobWFpbnApOw0KICAgICAgICByZXR1cm4gW3csaF0NCiAgICB9DQogICAgZm9yKHZhciBpPTA7aTxub3Rlcy5sZW5ndGg7aSsrKXsNCiAgICAgICAgdmFyIGE9bm90ZXNbaV0uZ2V0QXR0cmlidXRlKCdlZDpub3RlJyk7DQoJCXZhciBub3RlTG9jayA9IG5vdGVzW2ldLmdldEF0dHJpYnV0ZSgnZWQ6bm90ZWxvY2snKTsNCiAgICAgICAgaWYobm90ZUxvY2sgPT0gJ3RydWUnKXsNCiAgICAgICAgICAgIGNvbnRpbnVlOw0KICAgICAgICB9DQogICAgICAgIHZhciBtYWlucD1hLm1hdGNoKC88Ym9keVtePl0qPiguKik8XC9ib2R5Pi8pWzFdOw0KICAgICAgICB2YXIgbWFpbnM9YS5tYXRjaCgvc3R5bGU9IiguKj8pIi8pWzFdOw0KICAgICAgICB2YXIgb3V0PWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdnJyk7DQogICAgICAgIHZhciBvbGluZT1kb2N1bWVudC5jcmVhdGVFbGVtZW50TlMoJ2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJywncmVjdCcpOw0KICAgICAgICB2YXIgcG9wdXA9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudE5TKCdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycsJ2ZvcmVpZ25PYmplY3QnKTsNCiAgICAgICAgdmFyIHBvcHVwUj0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudE5TKCdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycsJ3JlY3QnKTsNCiAgICAgICAgdmFyIGhvdmVyPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdyZWN0Jyk7DQogICAgICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnZmlsbCcsJyNjZGNkZmYnKTsNCiAgICAgICAgaG92ZXIuc2V0QXR0cmlidXRlKCd4JywnMCcpOw0KICAgICAgICBob3Zlci5zZXRBdHRyaWJ1dGUoJ3knLCcwJyk7DQogICAgICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnaGVpZ2h0JywnMTYnKTsNCiAgICAgICAgaG92ZXIuc2V0QXR0cmlidXRlKCd3aWR0aCcsJzE2Jyk7DQogICAgICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnZmlsbC1vcGFjaXR5JywnMC42Jyk7DQogICAgICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJyxub3Rlc1tpXS5xdWVyeVNlbGVjdG9yKCd1c2UnKS5nZXRBdHRyaWJ1dGUoJ3RyYW5zZm9ybScpKTsNCiAgICAgICAgaG92ZXIuc3R5bGUuZGlzcGxheT0nbm9uZSc7DQogICAgICAgIG5vdGVzW2ldLmFwcGVuZENoaWxkKGhvdmVyKTsNCiAgICAgICAgcG9wdXAuc3R5bGUuY3NzVGV4dD1tYWluczsNCiAgICAgICAgcG9wdXAuaW5uZXJIVE1MPW1haW5wOw0KICAgICAgICB2YXIgd2g9Z2V0d2gobWFpbnMsbWFpbnApOw0KICAgICAgICBwb3B1cC5zZXRBdHRyaWJ1dGUoJ3dpZHRoJyx3aFswXSk7DQogICAgICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgnaGVpZ2h0Jyx3aFsxXSk7DQogICAgICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJywndHJhbnNsYXRlKDgsNCknKTsNCgkJcG9wdXAuc3R5bGUud29yZEJyZWFrID0gJ2JyZWFrLWFsbCc7DQogICAgICAgIHBvcHVwLnN0eWxlLnRleHRBbGlnbj0nbGVmdCc7DQogICAgICAgIG9saW5lLnNldEF0dHJpYnV0ZSgneCcsJzAnKTsNCiAgICAgICAgb2xpbmUuc2V0QXR0cmlidXRlKCd5JywnMCcpOw0KICAgICAgICBvbGluZS5zZXRBdHRyaWJ1dGUoJ3dpZHRoJyx3aFswXSsxNik7DQogICAgICAgIG9saW5lLnNldEF0dHJpYnV0ZSgnaGVpZ2h0Jyx3aFsxXSs4KTsNCiAgICAgICAgb2xpbmUuc2V0QXR0cmlidXRlKCdzdHJva2UnLCcjYTI3YTAwJyk7DQogICAgICAgIG9saW5lLnNldEF0dHJpYnV0ZSgnZmlsbCcsJyNmZmU3OWQnKTsNCiAgICAgICAgb3V0LmFwcGVuZENoaWxkKG9saW5lKTsNCiAgICAgICAgb3V0LmFwcGVuZENoaWxkKHBvcHVwKTsNCiAgICAgICAgb3V0LnNldEF0dHJpYnV0ZSgnbm90ZScsJycpOw0KICAgICAgICBvdXQuc3R5bGUuZGlzcGxheT0nbm9uZSc7DQogICAgICAgIG91dC5zZXRBdHRyaWJ1dGUoJ2VkOm5vdGVpZCcsbm90ZXNbaV0ucGFyZW50Tm9kZS5pZCk7DQogICAgICAgIG91dC5vbm1vdXNlb3Zlcj1mdW5jdGlvbiAoKSB7DQogICAgICAgICAgICB0aGlzLnN0eWxlLmRpc3BsYXk9J2Jsb2NrJzsNCiAgICAgICAgfTsNCiAgICAgICAgb3V0Lm9ubW91c2VvdXQ9ZnVuY3Rpb24gKCkgew0KLy8gICAgICAgIHdpbmRvdy5nZXRTZWxlY3Rpb24gPyB3aW5kb3cuZ2V0U2VsZWN0aW9uKCkucmVtb3ZlUmFuZ2Uod2luZG93LmdldFNlbGVjdGlvbigpLnJlKTpkb2N1bWVudC5zZWxlY3Rpb24uZW1wdHkoKTsNCg0KICAgICAgICAgICAgdGhpcy5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICAgICAgfTsNCiAgICAgICAgdmFyIGNzPW5vdGVzW2ldLnF1ZXJ5U2VsZWN0b3IoJ3VzZScpLmdldEF0dHJpYnV0ZSgndHJhbnNmb3JtJykubWF0Y2goL1woKFxTKnxcUypcc1xTKilcKS8pWzFdLnNwbGl0KC8gfCwvKTsNCiAgICAgICAgdmFyIHBzPW5vdGVzW2ldLnBhcmVudE5vZGUuZ2V0QXR0cmlidXRlKCd0cmFuc2Zvcm0nKTsNCiAgICAgICAgaWYocHMuc3Vic3RyKDAsMikgPT0gJ3RyJyl7DQogICAgICAgICAgICB2YXIgcHBzID0gcHMubWF0Y2goL1woKFxTKnxcUypcc1xTKilcKS8pWzFdLnNwbGl0KC8gfCwvKTsNCiAgICAgICAgICAgIHZhciB4PXBhcnNlRmxvYXQoY3NbMF0pK3BhcnNlRmxvYXQocHBzWzBdKTsNCiAgICAgICAgICAgIHZhciB5PXBhcnNlRmxvYXQocHBzWzFdKTsNCiAgICAgICAgICAgIHg9eC50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgIHk9eS50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgIHZhciB0cnN0ciA9ICd0cmFuc2xhdGUoJyt4KycsJyt5KycpJzsNCiAgICAgICAgfWVsc2UgaWYocHMuc3Vic3RyKDAsMikgPT0gJ21hJyl7DQogICAgICAgICAgICB2YXIgcHBzID0gcHMubWF0Y2goLyhcLT9cZCsoXC5cZCspPylbXCwgXShcLT9cZCsoXC5cZCspPylbXCwgXShcLT9cZCsoXC5cZCspPylbXCwgXShcLT9cZCsoXC5cZCspPylbXCwgXShcLT9cZCsoXC5cZCspPylbXCwgXShcLT9cZCsoXC5cZCspPylcKSQvKTsNCiAgICAgICAgICAgIHZhciBtYUFyciA9IFtwYXJzZUZsb2F0KHBwc1sxXSkscGFyc2VGbG9hdChwcHNbM10pLHBhcnNlRmxvYXQocHBzWzVdKSxwYXJzZUZsb2F0KHBwc1s3XSkscGFyc2VGbG9hdChwcHNbOV0pLHBhcnNlRmxvYXQocHBzWzExXSldOw0KICAgICAgICAgICAgaWYobWFBcnJbMV0gPT0gMCl7DQogICAgICAgICAgICAgICAgdmFyIHggPSBwYXJzZUZsb2F0KGNzWzBdKTsNCiAgICAgICAgICAgICAgICB2YXIgeSA9IHBhcnNlRmxvYXQoY3NbMV0pKzE2Ow0KICAgICAgICAgICAgICAgIHZhciB4MSA9IHggKiBtYUFyclswXSArIHkgKiBtYUFyclsyXSArIG1hQXJyWzRdOw0KICAgICAgICAgICAgICAgIHZhciB5MSA9IHggKiBtYUFyclsxXSArIHkgKiBtYUFyclszXSArIG1hQXJyWzVdOw0KICAgICAgICAgICAgICAgIHgxPXgxLnRvc3VpdHN2ZygpOw0KICAgICAgICAgICAgICAgIHkxPXkxLnRvc3VpdHN2ZygpOw0KICAgICAgICAgICAgICAgIHZhciB0cnN0ciA9ICAndHJhbnNsYXRlKCcreDErJywnK3kxKycpJzsNCiAgICAgICAgICAgIH1lbHNlew0KICAgICAgICAgICAgICAgIHZhciB4ID0gcGFyc2VGbG9hdChjc1swXSkrMTY7DQogICAgICAgICAgICAgICAgdmFyIHkgPSBwYXJzZUZsb2F0KGNzWzFdKSsxNjsNCiAgICAgICAgICAgICAgICB2YXIgeDEgPSB4ICogbWFBcnJbMF0gKyB5ICogbWFBcnJbMl0gKyBtYUFycls0XTsNCiAgICAgICAgICAgICAgICB2YXIgeTEgPSB4ICogbWFBcnJbMV0gKyB5ICogbWFBcnJbM10gKyBtYUFycls1XTsNCiAgICAgICAgICAgICAgICB4ID0gcGFyc2VGbG9hdChjc1swXSkrMTY7DQogICAgICAgICAgICAgICAgeSA9IHBhcnNlRmxvYXQoY3NbMV0pOw0KICAgICAgICAgICAgICAgIHZhciB4MiA9IHggKiBtYUFyclswXSArIHkgKiBtYUFyclsyXSArIG1hQXJyWzRdOw0KICAgICAgICAgICAgICAgIHZhciB5MiA9IHggKiBtYUFyclsxXSArIHkgKiBtYUFyclszXSArIG1hQXJyWzVdOw0KICAgICAgICAgICAgICAgIHZhciBmeCA9IHgxPHgyP3gxLnRvc3VpdHN2ZygpOiB4Mi50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgICAgICB2YXIgZnkgPSB5MT55Mj95MS50b3N1aXRzdmcoKTogeTIudG9zdWl0c3ZnKCk7DQoJCQkJdmFyIG9mZnkgPSBNYXRoLmFicyh5MS15Mik7CQkJCQkJCQkJCSAgDQogICAgICAgICAgICAgICAgdmFyIHRyc3RyID0gICd0cmFuc2xhdGUoJytmeCsnLCcrZnkrJyknOw0KICAgICAgICAgICAgICAgIHBvcHVwUi5zZXRBdHRyaWJ1dGUoJ2hlaWdodCcsb2ZmeS50b1N0cmluZygpKTsNCiAgICAgICAgICAgICAgICBwb3B1cFIuc2V0QXR0cmlidXRlKCd3aWR0aCcsJzE2Jyk7DQogICAgICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgneScsKC1vZmZ5KS50b1N0cmluZygpKTsNCiAgICAgICAgICAgICAgICBwb3B1cFIuc2V0QXR0cmlidXRlKCdmaWxsJywndHJhbnNwYXJlbnQnKTsNCiAgICAgICAgICAgICAgICBwb3B1cC5hcHBlbmRDaGlsZChwb3B1cFIpOw0KICAgICAgICAgICAgfQ0KICAgICAgICB9DQogICAgICAgIG91dC5zZXRBdHRyaWJ1dGUoJ3RyYW5zZm9ybScsdHJzdHIpOw0KICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcjc3ZnLWNvbnRhaW5lciA+IHN2ZycpLmFwcGVuZENoaWxkKG91dCk7DQogICAgICAgIG5vdGVzW2ldLm9ubW91c2VvdmVyPWZ1bmN0aW9uICgpIHsNCiAgICAgICAgICAgIHZhciBub3RlaWQ9dGhpcy5wYXJlbnROb2RlLmlkOw0KICAgICAgICAgICAgdGhpcy5xdWVyeVNlbGVjdG9yKCdyZWN0Jykuc3R5bGUuZGlzcGxheT0nYmxvY2snOw0KICAgICAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiZ1tlZFxcOm5vdGVpZD0nIitub3RlaWQrIiddW25vdGVdIikuc3R5bGUuZGlzcGxheT0nYmxvY2snOw0KICAgICAgICB9Ow0KICAgICAgICBub3Rlc1tpXS5vbm1vdXNlb3V0PWZ1bmN0aW9uICgpIHsNCiAgICAgICAgICAgIHZhciBub3RlaWQ9dGhpcy5wYXJlbnROb2RlLmlkOw0KLy8gICAgICAgIHdpbmRvdy5nZXRTZWxlY3Rpb24oKS5yZW1vdmVBbGxSYW5nZXMoKTsNCiAgICAgICAgICAgIHRoaXMucXVlcnlTZWxlY3RvcigncmVjdCcpLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgICAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiZ1tlZFxcOm5vdGVpZD0nIitub3RlaWQrIiddW25vdGVdIikuc3R5bGUuZGlzcGxheT0nbm9uZSc7DQogICAgICAgIH0NCiAgICB9DQp9ZWxzZXsNCiAgICBjb25zb2xlLmxvZygn5oqx5q2J77yMSUXmtY/op4jlmajkuI3mlK/mjIFub3Rl6Kej5p6Q77yM6K+35L2/55So5YW25LuW5YaF5qC45rWP6KeI5Zmo44CC6LCi6LCi77yBJykNCn0NCi8vLS1ub3RlDQovL2h5cGVybGluay0tDQp2YXIgbGlua3M9ZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnZz5nW2VkXFw6aHlwZXJsaW5rXScpOw0KZnVuY3Rpb24gZ2V0bWF4bGVuKGFycixicnIpIHsNCiAgICB2YXIgbD0wOw0KICAgIHZhciBsbD0wOw0KICAgIGZvcih2YXIgaj0wO2o8YXJyLmxlbmd0aDtqKyspew0KICAgICAgICB2YXIgZT1kb2N1bWVudC5jcmVhdGVFbGVtZW50TlMoJ2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJywndGV4dCcpOw0KICAgICAgICBpZighaXNOYU4obGlua2FycltqXSkpew0KICAgICAgICAgICAgZS50ZXh0Q29udGVudD0nUGFnZS0nK2FycltqXTsNCiAgICAgICAgfWVsc2V7DQogICAgICAgICAgICBlLnRleHRDb250ZW50PWFycltqXTsNCiAgICAgICAgfQ0KICAgICAgICBlLnN0eWxlLmZvbnRTaXplPScxMnB4JzsNCiAgICAgICAgZG9jdW1lbnQuYm9keS5nZXRFbGVtZW50c0J5VGFnTmFtZSgnc3ZnJylbMF0uYXBwZW5kQ2hpbGQoZSk7DQogICAgICAgIHZhciBldz1lLmdldEJCb3goKS53aWR0aDsNCiAgICAgICAgZG9jdW1lbnQuYm9keS5nZXRFbGVtZW50c0J5VGFnTmFtZSgnc3ZnJylbMF0ucmVtb3ZlQ2hpbGQoZSk7DQogICAgICAgIHZhciBoPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIGgudGV4dENvbnRlbnQ9YnJyW2pdOw0KICAgICAgICBoLnN0eWxlLmZvbnRTaXplPScxMnB4JzsNCiAgICAgICAgaC5zdHlsZS5mb250V2VpZ2h0PSdib2xkJzsNCiAgICAgICAgZG9jdW1lbnQuYm9keS5nZXRFbGVtZW50c0J5VGFnTmFtZSgnc3ZnJylbMF0uYXBwZW5kQ2hpbGQoaCk7DQogICAgICAgIHZhciBodz1oLmdldEJCb3goKS53aWR0aDsNCiAgICAgICAgZG9jdW1lbnQuYm9keS5nZXRFbGVtZW50c0J5VGFnTmFtZSgnc3ZnJylbMF0ucmVtb3ZlQ2hpbGQoaCk7DQogICAgICAgIGw9ZXc+aHc/ZXc6aHc7DQogICAgICAgIGxsPWw+bGw/bDpsbDsNCiAgICB9DQogICAgcmV0dXJuIGxsOw0KfQ0KZm9yKHZhciBpPTA7aTxsaW5rcy5sZW5ndGg7aSsrKXsNCiAgICB2YXIgcG9wdXA9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudE5TKCdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycsJ2cnKTsNCiAgICB2YXIgcG9wdXBSPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50TlMoJ2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJywncmVjdCcpOw0KICAgIHZhciBob3Zlcj1kb2N1bWVudC5jcmVhdGVFbGVtZW50TlMoJ2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJywncmVjdCcpOw0KICAgIHZhciBkZXNjYXJyPVtdOw0KICAgIHZhciBsaW5rYXJyPVtdOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnZmlsbCcsJyNjZGNkZmYnKTsNCiAgICBob3Zlci5zZXRBdHRyaWJ1dGUoJ3gnLCcwJyk7DQogICAgaG92ZXIuc2V0QXR0cmlidXRlKCd5JywnMCcpOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnaGVpZ2h0JywnMTYnKTsNCiAgICBob3Zlci5zZXRBdHRyaWJ1dGUoJ3dpZHRoJywnMTYnKTsNCiAgICBob3Zlci5zZXRBdHRyaWJ1dGUoJ2ZpbGwtb3BhY2l0eScsJzAuNicpOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJyxsaW5rc1tpXS5xdWVyeVNlbGVjdG9yKCd1c2UnKS5nZXRBdHRyaWJ1dGUoJ3RyYW5zZm9ybScpKTsNCiAgICBob3Zlci5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICBsaW5rc1tpXS5hcHBlbmRDaGlsZChob3Zlcik7DQogICAgLy8gY29uc29sZS5sb2cobGlua3NbaV0uZ2V0QXR0cmlidXRlKCdlZDpoeXBlcmxpbmsnKSk7DQogICAgdmFyIGE9SlNPTi5wYXJzZShsaW5rc1tpXS5nZXRBdHRyaWJ1dGUoJ2VkOmh5cGVybGluaycpKTsNCiAgICB2YXIgY3M9bGlua3NbaV0ucXVlcnlTZWxlY3RvcigndXNlJykuZ2V0QXR0cmlidXRlKCd0cmFuc2Zvcm0nKS5tYXRjaCgvXCgoXFMqfFxTKlxzXFMqKVwpLylbMV0uc3BsaXQoLyB8LC8pOw0KICAgIHZhciBwcz1saW5rc1tpXS5wYXJlbnROb2RlLmdldEF0dHJpYnV0ZSgndHJhbnNmb3JtJyk7DQogICAgaWYocHMuc3Vic3RyKDAsMikgPT0gJ3RyJyl7DQogICAgICAgIHZhciBwcHMgPSBwcy5tYXRjaCgvXCgoXFMqfFxTKlxzXFMqKVwpLylbMV0uc3BsaXQoLyB8LC8pOw0KICAgICAgICB2YXIgeD1wYXJzZUZsb2F0KGNzWzBdKStwYXJzZUZsb2F0KHBwc1swXSk7DQogICAgICAgIHZhciB5PXBhcnNlRmxvYXQocHBzWzFdKTsNCiAgICAgICAgeD14LnRvc3VpdHN2ZygpOw0KICAgICAgICB5PXkudG9zdWl0c3ZnKCk7DQogICAgICAgIHZhciB0cnN0ciA9ICd0cmFuc2xhdGUoJyt4KycsJyt5KycpJzsNCiAgICB9ZWxzZSBpZihwcy5zdWJzdHIoMCwyKSA9PSAnbWEnKXsNCiAgICAgICAgdmFyIHBwcyA9IHBzLm1hdGNoKC8oXC0/XGQrKFwuXGQrKT8pW1wsIF0oXC0/XGQrKFwuXGQrKT8pW1wsIF0oXC0/XGQrKFwuXGQrKT8pW1wsIF0oXC0/XGQrKFwuXGQrKT8pW1wsIF0oXC0/XGQrKFwuXGQrKT8pW1wsIF0oXC0/XGQrKFwuXGQrKT8pXCkkLyk7DQogICAgICAgIHZhciBtYUFyciA9IFtwYXJzZUZsb2F0KHBwc1sxXSkscGFyc2VGbG9hdChwcHNbM10pLHBhcnNlRmxvYXQocHBzWzVdKSxwYXJzZUZsb2F0KHBwc1s3XSkscGFyc2VGbG9hdChwcHNbOV0pLHBhcnNlRmxvYXQocHBzWzExXSldOw0KICAgICAgICBpZihtYUFyclsxXSA9PSAwKXsNCiAgICAgICAgICAgIHZhciB4ID0gcGFyc2VGbG9hdChjc1swXSk7DQogICAgICAgICAgICB2YXIgeSA9IHBhcnNlRmxvYXQoY3NbMV0pKzE2Ow0KICAgICAgICAgICAgdmFyIHgxID0geCAqIG1hQXJyWzBdICsgeSAqIG1hQXJyWzJdICsgbWFBcnJbNF07DQogICAgICAgICAgICB2YXIgeTEgPSB4ICogbWFBcnJbMV0gKyB5ICogbWFBcnJbM10gKyBtYUFycls1XTsNCiAgICAgICAgICAgIHgxPXgxLnRvc3VpdHN2ZygpOw0KICAgICAgICAgICAgeTE9eTEudG9zdWl0c3ZnKCk7DQogICAgICAgICAgICB2YXIgdHJzdHIgPSAgJ3RyYW5zbGF0ZSgnK3gxKycsJyt5MSsnKSc7DQogICAgICAgIH1lbHNlew0KICAgICAgICAgICAgdmFyIHggPSBwYXJzZUZsb2F0KGNzWzBdKSsxNjsNCiAgICAgICAgICAgIHZhciB5ID0gcGFyc2VGbG9hdChjc1sxXSkrMTY7DQogICAgICAgICAgICB2YXIgeDEgPSB4ICogbWFBcnJbMF0gKyB5ICogbWFBcnJbMl0gKyBtYUFycls0XTsNCiAgICAgICAgICAgIHZhciB5MSA9IHggKiBtYUFyclsxXSArIHkgKiBtYUFyclszXSArIG1hQXJyWzVdOw0KICAgICAgICAgICAgeCA9IHBhcnNlRmxvYXQoY3NbMF0pKzE2Ow0KICAgICAgICAgICAgeSA9IHBhcnNlRmxvYXQoY3NbMV0pOw0KICAgICAgICAgICAgdmFyIHgyID0geCAqIG1hQXJyWzBdICsgeSAqIG1hQXJyWzJdICsgbWFBcnJbNF07DQogICAgICAgICAgICB2YXIgeTIgPSB4ICogbWFBcnJbMV0gKyB5ICogbWFBcnJbM10gKyBtYUFycls1XTsNCiAgICAgICAgICAgIHZhciBmeCA9IHgxPHgyP3gxLnRvc3VpdHN2ZygpOiB4Mi50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgIHZhciBmeSA9IHkxPnkyP3kxLnRvc3VpdHN2ZygpOiB5Mi50b3N1aXRzdmcoKTsNCgkJCXZhciBvZmZ5ID0gTWF0aC5hYnMoeTEteTIpOwkJCQkJCQkJCQkgIA0KICAgICAgICAgICAgdmFyIHRyc3RyID0gICd0cmFuc2xhdGUoJytmeCsnLCcrZnkrJyknOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgnaGVpZ2h0JyxvZmZ5LnRvU3RyaW5nKCkpOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgnd2lkdGgnLCcxNicpOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgneScsKC1vZmZ5KS50b1N0cmluZygpKTsNCiAgICAgICAgICAgIHBvcHVwUi5zZXRBdHRyaWJ1dGUoJ2ZpbGwnLCd0cmFuc3BhcmVudCcpOw0KICAgICAgICAgICAgcG9wdXAuYXBwZW5kQ2hpbGQocG9wdXBSKTsNCiAgICAgICAgfQ0KICAgIH0NCiAgICB2YXIgYWw9YS5sZW5ndGg7DQogICAgZm9yKHZhciBqPTA7ajxhbDtqKyspew0KICAgICAgICBsaW5rYXJyLnB1c2goYVtqXS5saW5rKTsNCiAgICAgICAgZGVzY2Fyci5wdXNoKGFbal0uZGVzYyk7DQogICAgfQ0KICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJyx0cnN0cik7DQogICAgdmFyIG1heD1nZXRtYXhsZW4obGlua2FycixkZXNjYXJyKTsNCiAgICBmb3IodmFyIGs9MDtrPGFsO2srKyl7DQogICAgICAgIHZhciBjPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdhJyk7DQogICAgICAgIHZhciBkPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdyZWN0Jyk7DQogICAgICAgIHZhciBlPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIHZhciBmPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIGlmKGlzTmFOKGxpbmthcnJba10pKXsNCiAgICAgICAgICAgIGMuc2V0QXR0cmlidXRlTlMoImh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiwgInhsaW5rIiwgImh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiKTsNCiAgICAgICAgICAgIGMuc2V0QXR0cmlidXRlTlMoImh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiLCAiaHJlZiIsIGxpbmthcnJba10pOw0KICAgICAgICAgICAgYy5zZXRBdHRyaWJ1dGUoJ3RhcmdldCcsJ19ibGFuaycpOw0KICAgICAgICAgICAgZS50ZXh0Q29udGVudD1saW5rYXJyW2tdOw0KICAgICAgICB9ZWxzZXsNCiAgICAgICAgICAgIGUudGV4dENvbnRlbnQ9J1BhZ2UtJytsaW5rYXJyW2tdOw0KICAgICAgICAgICAgYy5zZXRBdHRyaWJ1dGVOUygiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciLCAieGxpbmsiLCAiaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIpOw0KICAgICAgICAgICAgYy5zZXRBdHRyaWJ1dGVOUygiaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIsICJocmVmIiwgIiMiK2xpbmthcnJba10pOw0KICAgICAgICB9DQogICAgICAgIGQuc2V0QXR0cmlidXRlKCd3aWR0aCcsbWF4KzEwKTsNCiAgICAgICAgZC5zZXRBdHRyaWJ1dGUoJ2hlaWdodCcsJzMzJyk7DQogICAgICAgIGQuc2V0QXR0cmlidXRlKCdzdHJva2UnLCcjOTk5OTk5Jyk7DQogICAgICAgIGQuc2V0QXR0cmlidXRlKCdmaWxsJywnd2hpdGUnKTsNCiAgICAgICAgZC5zZXRBdHRyaWJ1dGUoJ3knLDMzKmspOw0KICAgICAgICBmLnRleHRDb250ZW50PWRlc2NhcnJba107DQogICAgICAgIGYuc3R5bGUuZm9udFNpemU9JzEycHgnOw0KICAgICAgICBmLnN0eWxlLmZvbnRXZWlnaHQ9J2JvbGQnOw0KICAgICAgICBmLnNldEF0dHJpYnV0ZSgneCcsNSk7DQogICAgICAgIGYuc2V0QXR0cmlidXRlKCd5JywzMyprKzEyKTsNCiAgICAgICAgZS5zdHlsZS5mb250U2l6ZT0nMTJweCc7DQogICAgICAgIGUuc2V0QXR0cmlidXRlKCd5JywzMyprKzI4KTsNCiAgICAgICAgZS5zZXRBdHRyaWJ1dGUoJ3gnLDUpOw0KICAgICAgICBjLmFwcGVuZENoaWxkKGQpOw0KICAgICAgICBjLmFwcGVuZENoaWxkKGYpOw0KICAgICAgICBjLmFwcGVuZENoaWxkKGUpOw0KICAgICAgICBjLm9ubW91c2VvdmVyPWZ1bmN0aW9uICgpIHsNCiAgICAgICAgICAgIHRoaXMucXVlcnlTZWxlY3RvcigncmVjdCcpLnN0eWxlLmZpbGw9JyNlMWUxZmYnDQogICAgICAgIH07DQogICAgICAgIGMub25tb3VzZW91dD1mdW5jdGlvbiAoKSB7DQogICAgICAgICAgICB0aGlzLnF1ZXJ5U2VsZWN0b3IoJ3JlY3QnKS5zdHlsZS5maWxsPSd3aGl0ZScNCiAgICAgICAgfTsNCiAgICAgICAgcG9wdXAuYXBwZW5kQ2hpbGQoYyk7DQogICAgfQ0KICAgIHBvcHVwLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgnaHlwZXJsaW5rJywnJyk7DQogICAgcG9wdXAuc2V0QXR0cmlidXRlKCdlZDpsaW5raWQnLGxpbmtzW2ldLnBhcmVudE5vZGUuaWQpOw0KICAgIHBvcHVwLm9ubW91c2VvdmVyPWZ1bmN0aW9uICgpIHsNCiAgICAgICAgdGhpcy5zdHlsZS5kaXNwbGF5PSdibG9jayc7DQogICAgfTsNCiAgICBwb3B1cC5vbmNsaWNrPWZ1bmN0aW9uICgpIHsNCiAgICAgICAgdGhpcy5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICB9Ow0KICAgIHBvcHVwLm9ubW91c2VvdXQ9ZnVuY3Rpb24gKCkgew0KICAgICAgICB0aGlzLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgIH07DQogICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcignI3N2Zy1jb250YWluZXIgPiBzdmcnKS5hcHBlbmRDaGlsZChwb3B1cCk7DQogICAgbGlua3NbaV0ub25tb3VzZW92ZXI9ZnVuY3Rpb24gKCkgew0KICAgICAgICB2YXIgbGlua2lkPXRoaXMucGFyZW50Tm9kZS5pZDsNCiAgICAgICAgdGhpcy5xdWVyeVNlbGVjdG9yKCdyZWN0Jykuc3R5bGUuZGlzcGxheT0nYmxvY2snOw0KICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCJnW2VkXFw6bGlua2lkPSciK2xpbmtpZCsiJ11baHlwZXJsaW5rXSIpLnN0eWxlLmRpc3BsYXk9J2Jsb2NrJzsNCiAgICB9DQogICAgbGlua3NbaV0ub25tb3VzZW91dD1mdW5jdGlvbiAoKSB7DQogICAgICAgIHZhciBsaW5raWQ9dGhpcy5wYXJlbnROb2RlLmlkOw0KICAgICAgICB0aGlzLnF1ZXJ5U2VsZWN0b3IoJ3JlY3QnKS5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiZ1tlZFxcOmxpbmtpZD0nIitsaW5raWQrIiddW2h5cGVybGlua10iKS5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICB9DQp9DQovLy0taHlwZXJsaW5rDQovL2luaXRpYWxpemUtLQ0KdmFyIHNoYXBlPWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJ2dbZWRcXDp0b2d0b3BpY2lkXScpOw0KdmFyIG1JZD1kb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCdnW2VkXFw6dG9waWN0eXBlXScpOw0KdmFyIGRhdGFUcmVlPXt9Ow0KdmFyIGV4dHJhUmVsYT17fTsNCnZhciBjaGVja0lEPScnOw0KZm9yKHZhciBpPTA7aTxtSWQubGVuZ3RoO2krKyl7DQogICAgdmFyIHR5cGU9bUlkW2ldLmdldEF0dHJpYnV0ZSgnZWQ6dG9waWN0eXBlJyk7DQogICAgdmFyIHNpZD1tSWRbaV0uaWQ7DQogICAgaWYodHlwZSE9PSdjYWxsb3V0Jyl7DQogICAgICAgIGluaXQoc2lkLGRhdGFUcmVlKQ0KICAgIH0NCn0NCmZ1bmN0aW9uIGluaXQoaWQsIG9iaikgew0KICAgIHZhciBjaGlsZHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJnW2VkXFw6cGFyZW50aWQ9JyIgKyBpZCArICInXTpub3QoW2VkXFw6dG9waWN0eXBlXSkiKTsNCiAgICB2YXIgY2FsbHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJnW2VkXFw6cGFyZW50aWQ9JyIgKyBpZCArICInXVtlZFxcOnRvcGljdHlwZV0iKTsNCiAgICB2YXIgc3VtbWFyeSA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoInBhdGhbZWRcXDpwYXJlbnRpZCo9JyIgKyBpZCArICInXVtlZFxcOnR5cGU9J3N1bW1hcnknXSIpOw0KICAgIHZhciBib3VuZGFyeT0gZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgicGF0aFtlZFxcOnBhcmVudGlkKj0nIiArIGlkICsgIiddW2VkXFw6dHlwZT0nYm91bmRhcnknXSIpOw0KICAgIHZhciByZWxhZnJvbT1kb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJnW2VkXFw6ZnJvbWlkKj0nIiArIGlkICsgIiddW2VkXFw6dHlwZT0ncmVsYXRpb24nXSIpOw0KICAgIHZhciByZWxhdG89ZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgiZ1tlZFxcOnRvaWQqPSciICsgaWQgKyAiJ11bZWRcXDp0eXBlPSdyZWxhdGlvbiddIik7DQogICAgb2JqWyJtIiArIGlkXSA9IHt9Ow0KICAgIHZhciB0eXBlID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoaWQpLmdldEF0dHJpYnV0ZSgnZWQ6dG9waWN0eXBlJyk7DQogICAgdmFyIGl3PWRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGlkKS5nZXRBdHRyaWJ1dGUoJ2VkOndpZHRoJyk7DQogICAgdmFyIGloPWRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGlkKS5nZXRBdHRyaWJ1dGUoJ2VkOmhlaWdodCcpOw0KICAgIGlmICh0eXBlKSB7DQogICAgICAgIG9ialsibSIgKyBpZF0udHlwZSA9IHR5cGU7DQogICAgfQ0KICAgIGlmKGl3JiZpaCl7DQogICAgICAgIG9ialsibSIgKyBpZF0ud2lkdGggPWl3Ow0KICAgICAgICBvYmpbIm0iICsgaWRdLmhlaWdodCA9aWg7DQogICAgfQ0KICAgIGlmIChyZWxhZnJvbS5sZW5ndGggIT09IDApIHsNCiAgICAgICAgb2JqWyJtIiArIGlkXS5yZWxhZnJvbSA9IHt9Ow0KICAgICAgICBmb3IgKHZhciBpID0gMDsgaSA8IHJlbGFmcm9tLmxlbmd0aDsgaSsrKSB7DQogICAgICAgICAgICB2YXIgaW5kZXhpZCA9IHJlbGFmcm9tW2ldLmlkOw0KICAgICAgICAgICAgdmFyIHRvaWQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChpbmRleGlkKS5nZXRBdHRyaWJ1dGUoJ2VkOnRvaWQnKTsNCiAgICAgICAgICAgIGlmIChleHRyYVJlbGFbaW5kZXhpZF0gPT09IHVuZGVmaW5lZCkgew0KICAgICAgICAgICAgICAgIGV4dHJhUmVsYVtpbmRleGlkXSA9IHsNCiAgICAgICAgICAgICAgICAgICAgaWQ6IGluZGV4aWQsDQogICAgICAgICAgICAgICAgICAgIGZyb21pZDogaWQsDQogICAgICAgICAgICAgICAgICAgIHRvaWQ6IHRvaWQsDQogICAgICAgICAgICAgICAgICAgIGlzQzogZmFsc2UNCiAgICAgICAgICAgICAgICB9Ow0KICAgICAgICAgICAgfQ0KICAgICAgICAgICAgb2JqWyJtIiArIGlkXS5yZWxhZnJvbVtpbmRleGlkXT17fTsNCiAgICAgICAgICAgIG9ialsibSIgKyBpZF0ucmVsYWZyb20uZGlzcGxheT1kb2N1bWVudC5nZXRFbGVtZW50QnlJZChpZCkuc3R5bGUuZGlzcGxheSAhPT0gJ25vbmUnPydibG9jayc6J25vbmUnOw0KICAgICAgICB9DQogICAgfQ0KICAgIGlmIChyZWxhdG8ubGVuZ3RoICE9PSAwKSB7DQogICAgICAgIG9ialsibSIgKyBpZF0ucmVsYXRvID0ge307DQogICAgICAgIGZvciAodmFyIGkgPSAwOyBpIDwgcmVsYXRvLmxlbmd0aDsgaSsrKSB7DQogICAgICAgICAgICB2YXIgaW5kZXhpZD1yZWxhdG9baV0uaWQ7DQogICAgICAgICAgICB2YXIgZnJvbWlkPWRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGluZGV4aWQpLmdldEF0dHJpYnV0ZSgnZWQ6ZnJvbWlkJyk7DQogICAgICAgICAgICBpZihleHRyYVJlbGFbaW5kZXhpZF0gPT09IHVuZGVmaW5lZCl7DQogICAgICAgICAgICAgICAgZXh0cmFSZWxhW2luZGV4aWRdPXsNCiAgICAgICAgICAgICAgICAgICAgaWQ6aW5kZXhpZCwNCiAgICAgICAgICAgICAgICAgICAgZnJvbWlkOmZyb21pZCwNCiAgICAgICAgICAgICAgICAgICAgdG9pZDppZCwNCiAgICAgICAgICAgICAgICAgICAgaXNDOmZhbHNlDQogICAgICAgICAgICAgICAgfTsNCiAgICAgICAgICAgIH0NCiAgICAgICAgICAgIG9ialsibSIgKyBpZF0ucmVsYXRvW2luZGV4aWRdPXt9Ow0KICAgICAgICAgICAgb2JqWyJtIiArIGlkXS5yZWxhdG8uZGlzcGxheT1kb2N1bWVudC5nZXRFbGVtZW50QnlJZChpZCkuc3R5bGUuZGlzcGxheSAhPT0gJ25vbmUnPydibG9jayc6J25vbmUnOw0KICAgICAgICB9DQogICAgfQ0KICAgIGlmIChjaGlsZHMubGVuZ3RoICE9PSAwKSB7DQogICAgICAgIG9ialsibSIgKyBpZF0uY2hpbGQgPSB7fTsNCiAgICAgICAgaWYgKGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoImdbZWRcXDp0b2d0b3BpY2lkPSciICsgaWQgKyAiJ10iKSkgew0KICAgICAgICAgICAgLy8gY29uc29sZS5sb2coZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiZ1tlZFxcOnRvZ3RvcGljaWQ9JyIgKyBpZCArICInXSIpLmNoaWxkTm9kZXNbMF0uZ2V0QXR0cmlidXRlKCd4bGluazpocmVmJykpOw0KICAgICAgICAgICAgdmFyIHRvZyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoImdbZWRcXDp0b2d0b3BpY2lkPSciICsgaWQgKyAiJ10iKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgndXNlJylbMF0uZ2V0QXR0cmlidXRlKCd4bGluazpocmVmJykuc2xpY2UoMSk7DQogICAgICAgICAgICBvYmpbIm0iICsgaWRdLnRvZ3R5cGUgPSB0b2c7DQogICAgICAgIH0NCiAgICAgICAgZm9yICh2YXIgaSA9IDA7IGkgPCBjaGlsZHMubGVuZ3RoOyBpKyspIHsNCiAgICAgICAgICAgIHZhciBjaWQgPSBjaGlsZHNbaV0uaWQ7DQogICAgICAgICAgICBpbml0KGNpZCwgb2JqWyJtIiArIGlkXS5jaGlsZCk7DQogICAgICAgIH0NCiAgICB9DQogICAgaWYgKGNhbGxzLmxlbmd0aCAhPT0gMCkgew0KICAgICAgICBvYmpbIm0iICsgaWRdLmNhbGwgPSB7fTsNCiAgICAgICAgZm9yICh2YXIgaSA9IDA7IGkgPCBjYWxscy5sZW5ndGg7IGkrKykgew0KICAgICAgICAgICAgdmFyIGNpZCA9IGNhbGxzW2ldLmlkOw0KICAgICAgICAgICAgaW5pdChjaWQsIG9ialsibSIgKyBpZF0uY2FsbCk7DQogICAgICAgIH0NCiAgICB9DQogICAgaWYgKGJvdW5kYXJ5Lmxlbmd0aCAhPT0gMCkgew0KICAgICAgICBvYmpbIm0iICsgaWRdLmJvdW5kYXJ5ID0ge307DQogICAgICAgIGZvciAodmFyIGkgPSAwOyBpIDwgYm91bmRhcnkubGVuZ3RoOyBpKyspIHsNCiAgICAgICAgICAgIHZhciBjaWQgPWJvdW5kYXJ5W2ldLmlkOw0KICAgICAgICAgICAgaW5pdChjaWQsIG9ialsibSIgKyBpZF0uYm91bmRhcnkpOw0KICAgICAgICB9DQogICAgfQ0KICAgIGlmIChzdW1tYXJ5Lmxlbmd0aCAhPT0gMCkgew0KICAgICAgICBvYmpbIm0iICsgaWRdLnN1bW1hcnkgPSB7fTsNCiAgICAgICAgZm9yICh2YXIgaSA9IDA7IGkgPCBzdW1tYXJ5Lmxlbmd0aDsgaSsrKSB7DQogICAgICAgICAgICB2YXIgY2lkID0gc3VtbWFyeVtpXS5pZDsNCiAgICAgICAgICAgIGluaXQoY2lkLCBvYmpbIm0iICsgaWRdLnN1bW1hcnkpOw0KICAgICAgICB9DQogICAgfQ0KfQ0KLy8tLWluaXRpYWxpemUNCi8vdG9nZ2xlZGlzcGxheS0tDQp2YXIgY2hhaW5BcnI9W107DQpmdW5jdGlvbiBnZXRjaGFpbihpZCl7DQogICAgY2hhaW5BcnIudW5zaGlmdCgnbScraWQpOw0KICAgIHZhciBwYXJlbnQ9ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoaWQpLmdldEF0dHJpYnV0ZSgnZWQ6cGFyZW50aWQnKTsNCiAgICBpZighcGFyZW50KXsNCiAgICAgICAgcmV0dXJuOw0KICAgIH0NCglpZihwYXJlbnQubWF0Y2goL1wsLykpew0KICAgICAgICBwYXJlbnQgPSBwYXJlbnQubWF0Y2goL1xkKyg/PVwsKS8pWzBdDQogICAgfQ0KICAgIGdldGNoYWluKHBhcmVudCk7DQp9DQpmdW5jdGlvbiBnZXRvYmooaWQpIHsNCiAgICBjaGFpbkFycj1bXTsNCiAgICBnZXRjaGFpbihpZCk7DQogICAgdmFyIG1haW49Y2hhaW5BcnJbMF07DQogICAgaWYoY2hhaW5BcnIubGVuZ3RoPjEpew0KICAgICAgICB2YXIgb2JqPWRhdGFUcmVlW21haW5dOw0KICAgICAgICAvLyBjb25zb2xlLmxvZyhjaGFpbkFycik7DQogICAgICAgIGZvcih2YXIgaT0xO2k8Y2hhaW5BcnIubGVuZ3RoO2krKykgew0KICAgICAgICAgICAgdmFyIGEgPSBjaGFpbkFycltpXTsNCiAgICAgICAgICAgIGZvcih2YXIgaj0wO2o8T2JqZWN0LmtleXMob2JqKS5sZW5ndGg7aisrKXsNCiAgICAgICAgICAgICAgICB2YXIgY29iaj0gb2JqW09iamVjdC5rZXlzKG9iailbal1dW2FdOw0KICAgICAgICAgICAgICAgIGlmKGNvYmopew0KICAgICAgICAgICAgICAgICAgICBvYmo9Y29iajsNCiAgICAgICAgICAgICAgICAgICAgY29udGludWUNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9DQogICAgICAgIH0NCiAgICAgICAgcmV0dXJuIG9iag0KICAgIH1lbHNlew0KICAgICAgICB2YXIgb2JqPWRhdGFUcmVlW21haW5dOw0KICAgICAgICByZXR1cm4gb2JqDQogICAgfQ0KDQp9DQpmb3IodmFyIGk9MDtpPHNoYXBlLmxlbmd0aDtpKyspew0KICAgIHNoYXBlW2ldLm9uY2xpY2s9ZnVuY3Rpb24gKCkgew0KICAgICAgICB2YXIgaWQ9TnVtYmVyKHRoaXMuZ2V0QXR0cmlidXRlKCdlZDp0b2d0b3BpY2lkJykpOw0KICAgICAgICB2YXIgb2JqPWdldG9iaihpZCk7DQoNCiAgICAgICAgdmFyIHR5cGU9b2JqLnRvZ3R5cGU9PT0nbWludXMnPydwbHVzJzonbWludXMnOw0KICAgICAgICB2YXIgZGlzcGxheT1vYmoudG9ndHlwZT09PSdtaW51cyc/J25vbmUnOidibG9jayc7DQogICAgICAgIHRoaXMuZ2V0RWxlbWVudHNCeVRhZ05hbWUoJ3VzZScpWzBdLnNldEF0dHJpYnV0ZSgneGxpbms6aHJlZicsJyMnK3R5cGUpOw0KICAgICAgICBvYmoudG9ndHlwZT10eXBlOw0KICAgICAgICBjaGVja0lEPW9iajsNCg0KICAgICAgICB1dGQob2JqLGlkLGRpc3BsYXkpOw0KICAgICAgICBleHRyYVJlbGFGaW4oKTsNCiAgICB9DQp9DQpmdW5jdGlvbiB1dGQob2JqLGlkLHNob3csb2MpIHsNCg0KICAgIHZhciBwc2hvdz1kb2N1bWVudC5nZXRFbGVtZW50QnlJZChpZCkuc3R5bGUuZGlzcGxheSE9PSAnbm9uZSc/J2Jsb2NrJzonbm9uZSc7DQogICAgaWYgKG9iai5yZWxhZnJvbSl7DQogICAgICAgIGlmKG9iai5yZWxhZnJvbS5kaXNwbGF5IT09IHBzaG93KXsNCiAgICAgICAgICAgIHZhciByZWxhZnJvbXM9T2JqZWN0LmtleXMob2JqLnJlbGFmcm9tKTsNCiAgICAgICAgICAgIHJlbGFmcm9tcy5zcGxpY2UocmVsYWZyb21zLmluZGV4T2YoJ2Rpc3BsYXknKSwxKTsNCiAgICAgICAgICAgIGZvcih2YXIgaz0wO2s8cmVsYWZyb21zLmxlbmd0aDtrKyspew0KICAgICAgICAgICAgICAgIHZhciBkPXJlbGFmcm9tc1trXTsNCiAgICAgICAgICAgICAgICBleHRyYVJlbGFbZF0uaXNDPXRydWU7DQogICAgICAgICAgICB9DQogICAgICAgICAgICBvYmoucmVsYWZyb20uZGlzcGxheSA9IHBzaG93Ow0KICAgICAgICB9DQogICAgfQ0KICAgIGlmIChvYmoucmVsYXRvKXsNCiAgICAgICAgaWYob2JqLnJlbGF0by5kaXNwbGF5IT09IHBzaG93KXsNCiAgICAgICAgICAgIHZhciByZWxhdG9zPU9iamVjdC5rZXlzKG9iai5yZWxhdG8pOw0KICAgICAgICAgICAgcmVsYXRvcy5zcGxpY2UocmVsYXRvcy5pbmRleE9mKCdkaXNwbGF5JyksMSk7DQogICAgICAgICAgICBmb3IodmFyIGs9MDtrPHJlbGF0b3MubGVuZ3RoO2srKyl7DQogICAgICAgICAgICAgICAgdmFyIGQ9cmVsYXRvc1trXTsNCiAgICAgICAgICAgICAgICBleHRyYVJlbGFbZF0uaXNDPXRydWU7DQogICAgICAgICAgICB9DQogICAgICAgICAgICBvYmoucmVsYXRvLmRpc3BsYXkgPSBwc2hvdzsNCiAgICAgICAgfQ0KICAgIH0NCiAgICBpZihvYmouY2FsbCl7DQogICAgICAgIHZhciBjYWxscz1PYmplY3Qua2V5cyhvYmouY2FsbCk7DQogICAgICAgIGlmKGNoZWNrSUQhPT1vYmopew0KICAgICAgICAgICAgZm9yKHZhciBpPTA7aSA8IGNhbGxzLmxlbmd0aDtpKyspew0KICAgICAgICAgICAgICAgIHZhciBhPWNhbGxzW2ldLnNsaWNlKDEpOw0KICAgICAgICAgICAgICAgIHZhciBiPW9iai5jYWxsW2NhbGxzW2ldXTsNCiAgICAgICAgICAgICAgICB2YXIgYz1iLnRvZ3R5cGU7DQogICAgICAgICAgICAgICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoYSkuc3R5bGUuZGlzcGxheT1zaG93Ow0KICAgICAgICAgICAgICAgIGlmIChiLnJlbGFmcm9tJiYhYyl7DQogICAgICAgICAgICAgICAgICAgIGlmKGIucmVsYWZyb20uZGlzcGxheSE9PSBzaG93KXsNCiAgICAgICAgICAgICAgICAgICAgICAgIHZhciByZWxhZnJvbXM9T2JqZWN0LmtleXMoYi5yZWxhZnJvbSk7DQogICAgICAgICAgICAgICAgICAgICAgICByZWxhZnJvbXMuc3BsaWNlKHJlbGFmcm9tcy5pbmRleE9mKCdkaXNwbGF5JyksMSk7DQogICAgICAgICAgICAgICAgICAgICAgICBmb3IodmFyIGs9MDtrPHJlbGFmcm9tcy5sZW5ndGg7aysrKXsNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YXIgZD1yZWxhZnJvbXNba107DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZXh0cmFSZWxhW2RdLmlzQz10cnVlOw0KICAgICAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgICAgICAgICAgYi5yZWxhZnJvbS5kaXNwbGF5ID0gc2hvdzsNCiAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICBpZiAoYi5yZWxhdG8mJiFjKXsNCiAgICAgICAgICAgICAgICAgICAgaWYoYi5yZWxhdG8uZGlzcGxheSE9PSBzaG93KXsNCiAgICAgICAgICAgICAgICAgICAgICAgIHZhciByZWxhdG9zPU9iamVjdC5rZXlzKGIucmVsYXRvKTsNCiAgICAgICAgICAgICAgICAgICAgICAgIHJlbGF0b3Muc3BsaWNlKHJlbGF0b3MuaW5kZXhPZignZGlzcGxheScpLDEpOw0KICAgICAgICAgICAgICAgICAgICAgICAgZm9yKHZhciBrPTA7azxyZWxhdG9zLmxlbmd0aDtrKyspew0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhciBkPXJlbGF0b3Nba107DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZXh0cmFSZWxhW2RdLmlzQz10cnVlOw0KICAgICAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgICAgICAgICAgYi5yZWxhdG8uZGlzcGxheSA9IHNob3c7DQogICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgaWYoYyl7DQogICAgICAgICAgICAgICAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoImdbZWRcXDp0b2d0b3BpY2lkPSciK2ErIiddIikuc3R5bGUuZGlzcGxheT1zaG93Ow0KICAgICAgICAgICAgICAgICAgICBpZihjPT09J21pbnVzJyl7DQogICAgICAgICAgICAgICAgICAgICAgICB1dGQoYixhLHNob3cpDQogICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICAgICAgaWYgKChiLmNhbGx8fGIuYm91bmRhcnl8fGIuc3VtbWFyeSkmJmM9PT0ncGx1cycpIHsNCiAgICAgICAgICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdyx0cnVlKQ0KICAgICAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIGlmKGIuY2FsbCYmIWMpIHsNCiAgICAgICAgICAgICAgICAgICAgdXRkKGIsYSxzaG93LHRydWUpDQogICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIGlmIChiLnN1bW1hcnkmJiFjKSB7DQogICAgICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdykNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgaWYgKGIuYm91bmRhcnkmJiFjKSB7DQogICAgICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdykNCiAgICAgICAgICAgICAgICB9DQoNCiAgICAgICAgICAgIH0NCiAgICAgICAgfQ0KICAgIH0NCiAgICBpZihvYmouc3VtbWFyeSl7DQogICAgICAgIHZhciBzdW1tYXJ5cz1PYmplY3Qua2V5cyhvYmouc3VtbWFyeSk7DQogICAgICAgIGlmKChjaGVja0lEIT09b2JqJiYob2JqLnRvZ3R5cGU9PT0nbWludXMnfHwhb2JqLnRvZ3R5cGUpKXx8Y2hlY2tJRD09PW9iail7DQogICAgICAgICAgICBmb3IodmFyIGk9MDtpPHN1bW1hcnlzLmxlbmd0aDtpKyspew0KICAgICAgICAgICAgICAgIHZhciBhPXN1bW1hcnlzW2ldLnNsaWNlKDEpOw0KCQkJCXZhciBvc3AgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChhKS5nZXRBdHRyaWJ1dGUoJ2VkOnBhcmVudGlkJyk7DQogICAgICAgICAgICAgICAgaWYob3NwLm1hdGNoKC9cLC8pKXsNCiAgICAgICAgICAgICAgICAgICAgdmFyIG9zcGEgPSBvc3Auc3BsaXQoJywnKTsNCiAgICAgICAgICAgICAgICAgICAgdmFyIG9zcEw9MDsNCg0KICAgICAgICAgICAgICAgICAgICBmb3IodmFyIGo9MDtqPG9zcGEubGVuZ3RoO2orKyl7DQogICAgICAgICAgICAgICAgICAgICAgICBpZihzaG93ID09ICdub25lJyl7DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgaWYoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQob3NwYVtqXSkuc3R5bGUuZGlzcGxheSAhPSAnbm9uZScpew0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBicmVhazsNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9ZWxzZXsNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb3NwTCsrOw0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICAgICAgICAgIH1lbHNlew0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpZihkb2N1bWVudC5nZXRFbGVtZW50QnlJZChhKS5zdHlsZS5kaXNwbGF5ICE9ICdub25lJyl7DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBicmVhazsNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfWVsc2V7DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvc3BMKys7DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICAgICAgICAgIH0NCg0KICAgICAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgICAgIGlmKG9zcEwgIT09IG9zcGEubGVuZ3RoKXsNCiAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRpbnVlOw0KICAgICAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIHZhciBiPW9iai5zdW1tYXJ5W3N1bW1hcnlzW2ldXTsNCiAgICAgICAgICAgICAgICAvLyBjb25zb2xlLmxvZyhhKTsNCiAgICAgICAgICAgICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChhKS5zdHlsZS5kaXNwbGF5PXNob3c7DQovLyAgICAgICAgICAgICAgICBpZihjKXsNCi8vICAgICAgICAgICAgICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCJnW2VkXFw6dG9ndG9waWNpZD0nIithKyInXSIpLnN0eWxlLmRpc3BsYXk9c2hvdzsNCi8vICAgICAgICAgICAgICAgICAgICBpZihjPT09J21pbnVzJyl7DQovLyAgICAgICAgICAgICAgICAgICAgICAgIHV0ZChiLHNob3cpDQovLyAgICAgICAgICAgICAgICAgICAgfQ0KLy8gICAgICAgICAgICAgICAgICAgIGlmIChiLmNhbGwmJmM9PT0ncGx1cycpIHsNCi8vICAgICAgICAgICAgICAgICAgICAgICAgdXRkKGIsc2hvdyx0cnVlKQ0KLy8gICAgICAgICAgICAgICAgICAgIH0NCi8vICAgICAgICAgICAgICAgIH0NCi8vICAgICAgICAgICAgICAgIGlmKGIuY2FsbCYmIWMpIHsNCi8vICAgICAgICAgICAgICAgICAgICB1dGQoYixzaG93LHRydWUpDQovLyAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgaWYoT2JqZWN0LmtleXMoYikubGVuZ3RoIT09MCl7DQogICAgICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdykNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9DQogICAgICAgIH0NCiAgICB9DQogICAgaWYob2JqLmJvdW5kYXJ5KXsNCiAgICAgICAgdmFyIGJvdW5kYXJ5cz1PYmplY3Qua2V5cyhvYmouYm91bmRhcnkpOw0KICAgICAgICBpZihjaGVja0lEIT09b2JqKXsNCiAgICAgICAgICAgIGZvcih2YXIgaT0wO2k8Ym91bmRhcnlzLmxlbmd0aDtpKyspew0KICAgICAgICAgICAgICAgIHZhciBhPWJvdW5kYXJ5c1tpXS5zbGljZSgxKTsNCiAgICAgICAgICAgICAgICB2YXIgYj1vYmouYm91bmRhcnlbYm91bmRhcnlzW2ldXTsNCiAgICAgICAgICAgICAgICAvLyBjb25zb2xlLmxvZyhhKTsNCiAgICAgICAgICAgICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChhKS5zdHlsZS5kaXNwbGF5PXNob3c7DQovLyAgICAgICAgICAgICAgICBpZihjKXsNCi8vICAgICAgICAgICAgICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCJnW2VkXFw6dG9ndG9waWNpZD0nIithKyInXSIpLnN0eWxlLmRpc3BsYXk9c2hvdzsNCi8vICAgICAgICAgICAgICAgICAgICBpZihjPT09J21pbnVzJyl7DQovLyAgICAgICAgICAgICAgICAgICAgICAgIHV0ZChiLHNob3cpDQovLyAgICAgICAgICAgICAgICAgICAgfQ0KLy8gICAgICAgICAgICAgICAgICAgIGlmIChiLmNhbGwmJmM9PT0ncGx1cycpIHsNCi8vICAgICAgICAgICAgICAgICAgICAgICAgdXRkKGIsc2hvdyx0cnVlKQ0KLy8gICAgICAgICAgICAgICAgICAgIH0NCi8vICAgICAgICAgICAgICAgIH0NCi8vICAgICAgICAgICAgICAgIGlmKGIuY2FsbCYmIWMpIHsNCi8vICAgICAgICAgICAgICAgICAgICB1dGQoYixzaG93LHRydWUpDQovLyAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgaWYoT2JqZWN0LmtleXMoYikubGVuZ3RoIT09MCl7DQogICAgICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdykNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9DQogICAgICAgIH0NCiAgICB9DQogICAgaWYoIW9jJiZvYmouY2hpbGQpIHsNCiAgICAgICAgdmFyIGNoaWxkcyA9IE9iamVjdC5rZXlzKG9iai5jaGlsZCk7DQogICAgICAgIGZvciAodmFyIGkgPSAwOyBpIDwgY2hpbGRzLmxlbmd0aDsgaSsrKSB7DQogICAgICAgICAgICB2YXIgYSA9IGNoaWxkc1tpXS5zbGljZSgxKTsNCiAgICAgICAgICAgIHZhciBiID0gb2JqLmNoaWxkW2NoaWxkc1tpXV07DQogICAgICAgICAgICB2YXIgYyA9IGIudG9ndHlwZTsNCiAgICAgICAgICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGEpLnN0eWxlLmRpc3BsYXkgPSBzaG93Ow0KCQkJdmFyIHRTUGF0aCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoInBhdGhbZWRcXDp0b3N1cGVyaWQ9JyIrYSsiJ10iKTsNCiAgICAgICAgICAgIGlmKHRTUGF0aCl7DQogICAgICAgICAgICAgICAgdFNQYXRoLnN0eWxlLmRpc3BsYXkgPSBzaG93Ow0KICAgICAgICAgICAgfQ0KCQkJdmFyIG5vdGVUaXAgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCJnW2VkXFw6bm90ZXRvPSciK2ErIiddIik7DQogICAgICAgICAgICBpZihub3RlVGlwKXsNCiAgICAgICAgICAgICAgICBub3RlVGlwLnN0eWxlLmRpc3BsYXkgPSBzaG93Ow0KICAgICAgICAgICAgfQ0KICAgICAgICAgICAgaWYgKGIucmVsYWZyb20mJiFjKXsNCiAgICAgICAgICAgICAgICBpZihiLnJlbGFmcm9tLmRpc3BsYXkhPT0gc2hvdyl7DQogICAgICAgICAgICAgICAgICAgIHZhciByZWxhZnJvbXM9T2JqZWN0LmtleXMoYi5yZWxhZnJvbSk7DQogICAgICAgICAgICAgICAgICAgIHJlbGFmcm9tcy5zcGxpY2UocmVsYWZyb21zLmluZGV4T2YoJ2Rpc3BsYXknKSwxKTsNCiAgICAgICAgICAgICAgICAgICAgZm9yKHZhciBrPTA7azxyZWxhZnJvbXMubGVuZ3RoO2srKyl7DQogICAgICAgICAgICAgICAgICAgICAgICB2YXIgZD1yZWxhZnJvbXNba107DQogICAgICAgICAgICAgICAgICAgICAgICBleHRyYVJlbGFbZF0uaXNDPXRydWU7DQogICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICAgICAgYi5yZWxhZnJvbS5kaXNwbGF5ID0gc2hvdzsNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9DQogICAgICAgICAgICBpZiAoYi5yZWxhdG8mJiFjKXsNCiAgICAgICAgICAgICAgICBpZihiLnJlbGF0by5kaXNwbGF5IT09IHNob3cpew0KICAgICAgICAgICAgICAgICAgICB2YXIgcmVsYXRvcz1PYmplY3Qua2V5cyhiLnJlbGF0byk7DQogICAgICAgICAgICAgICAgICAgIHJlbGF0b3Muc3BsaWNlKHJlbGF0b3MuaW5kZXhPZignZGlzcGxheScpLDEpOw0KICAgICAgICAgICAgICAgICAgICBmb3IodmFyIGs9MDtrPHJlbGF0b3MubGVuZ3RoO2srKyl7DQogICAgICAgICAgICAgICAgICAgICAgICB2YXIgZD1yZWxhdG9zW2tdOw0KICAgICAgICAgICAgICAgICAgICAgICAgZXh0cmFSZWxhW2RdLmlzQz10cnVlOw0KICAgICAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgICAgIGIucmVsYXRvLmRpc3BsYXkgPSBzaG93Ow0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgIH0NCiAgICAgICAgICAgIGlmIChjKSB7DQogICAgICAgICAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiZ1tlZFxcOnRvZ3RvcGljaWQ9JyIgKyBhICsgIiddIikuc3R5bGUuZGlzcGxheSA9IHNob3c7DQogICAgICAgICAgICAgICAgaWYgKGMgPT09ICdtaW51cycpIHsNCiAgICAgICAgICAgICAgICAgICAgdXRkKGIsYSxzaG93KQ0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICBpZiAoKGIuY2FsbHx8Yi5ib3VuZGFyeXx8Yi5zdW1tYXJ5KSYmYz09PSdwbHVzJykgew0KICAgICAgICAgICAgICAgICAgICB1dGQoYixhLHNob3csdHJ1ZSkNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9DQogICAgICAgICAgICBpZiAoYi5jYWxsJiYhYykgew0KICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdyx0cnVlKQ0KICAgICAgICAgICAgfQ0KICAgICAgICAgICAgaWYgKGIuc3VtbWFyeSYmIWMpIHsNCiAgICAgICAgICAgICAgICB1dGQoYixhLHNob3cpDQogICAgICAgICAgICB9DQogICAgICAgICAgICBpZiAoYi5ib3VuZGFyeSYmIWMpIHsNCiAgICAgICAgICAgICAgICB1dGQoYixhLHNob3cpDQogICAgICAgICAgICB9DQogICAgICAgIH0NCiAgICB9DQp9DQoNCmZ1bmN0aW9uIGV4dHJhUmVsYUZpbigpIHsNCiAgICB2YXIgZXh0cmFrZXlzPU9iamVjdC5rZXlzKGV4dHJhUmVsYSk7DQogICAgZm9yKHZhciBpPTA7aTxleHRyYWtleXMubGVuZ3RoO2krKyl7DQogICAgICAgIHZhciBleHRyYU9iaj1leHRyYVJlbGFbZXh0cmFrZXlzW2ldXTsNCiAgICAgICAgaWYoZXh0cmFPYmouaXNDID09PSB0cnVlKXsNCiAgICAgICAgICAgIHZhciBmc2hvdz1kb2N1bWVudC5nZXRFbGVtZW50QnlJZChleHRyYU9iai5mcm9taWQpLnN0eWxlLmRpc3BsYXkgIT09J25vbmUnPyB0cnVlOiBmYWxzZTsNCiAgICAgICAgICAgIHZhciB0c2hvdz1kb2N1bWVudC5nZXRFbGVtZW50QnlJZChleHRyYU9iai50b2lkKS5zdHlsZS5kaXNwbGF5ICE9PSdub25lJz8gdHJ1ZTogZmFsc2U7DQogICAgICAgICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChleHRyYU9iai5pZCkuc3R5bGUuZGlzcGxheT1mc2hvdyAmJiB0c2hvdz8gJ2Jsb2NrJzogJ25vbmUnOw0KICAgICAgICAgICAgZXh0cmFSZWxhW2V4dHJha2V5c1tpXV0uaXNDID0gZmFsc2U7DQogICAgICAgIH0NCiAgICB9DQp9'))</script>
+  </body>
+</html>
