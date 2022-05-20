@@ -4,7 +4,7 @@
 
 Just mindmapping according to official document ( useful for further study ) ：
 
-https://docs.oracle.com/javase/8/docs/platform/serialization/spec/protocol.htmls
+https://docs.oracle.com/javase/8/docs/platform/serialization/spec/protocol.html
 
 <img src="java_serialization_format.png" alt="java_serialization_format" style="zoom:67%;" />
 
@@ -12,6 +12,6 @@ https://docs.oracle.com/javase/8/docs/platform/serialization/spec/protocol.htmls
 
 ## Reference：
 
-https://docs.oracle.com/javase/8/docs/platform/serialization/spec/protocol.htmls
+https://docs.oracle.com/javase/8/docs/platform/serialization/spec/protocol.html
 
 https://github.com/NickstaDB/SerializationDumper
